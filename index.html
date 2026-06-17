@@ -6,308 +6,156 @@
     
     <meta name="google-site-verification" content="wVmYd3Nk0lRKhNOZlIdppxvKvHvz4PV1vgp2lv1nBiA" />
     
-    <title>404 TEAM // Full Programlar və Oyunlar Yükləmə Mərkəzi</title>
-    <meta name="description" content="404 Team rəsmi proqram arxivi. Ən son kırma proqramlar, PS3 HFW 4.93, oyun modları və sistem alətlərini pulsuz və sürətli yükləyin.">
-    <meta name="keywords" content="404 team, hfw 4.93 indir, full program indir, mta handling, ps3 hen kırma, pulsuz proqramlar">
+    <title>404 TEAM // PS3 HFW 4.93 HEN Güncelleme İndir</title>
+    <meta name="description" content="404 Team rəsmi proqram arxivi. PS3 HFW 4.93 HEN qırma faylını pulsuz, təhlükəsiz və sürətli şəkildə buradan yükləyin.">
+    <meta name="keywords" content="404 team, hfw 4.93 indir, ps3 hen kırma, ps3 güncelleme indir, pulsuz proqramlar">
     <meta name="robots" content="index, follow">
     
     <style>
-        /* Professional Yükləmə Saytı Dizaynı */
+        /* TƏMİZ AĞ FONLU BLOQ DİZAYNI */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
-            background-color: #0f1115;
-            color: #e2e8f0;
+            background-color: #ffffff;
+            color: #222222;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid #1e293b;
-            margin-bottom: 30px;
-        }
-        header h1 {
-            color: #ef4444;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        header p {
-            color: #94a3b8;
-            margin-top: 5px;
-        }
-        
-        /* Proqram Kartları Şəbəkəsi */
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .program-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            padding: 20px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            align-items: center;
         }
-        .badge {
-            display: inline-block;
-            background-color: #38bdf8;
-            color: #0f1115;
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            align-self: flex-start;
-            text-transform: uppercase;
-        }
-        .badge.game { background-color: #a855f7; color: #fff; }
-        .badge.sys { background-color: #22c55e; color: #fff; }
         
-        .prog-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-        .prog-desc {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        header {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #f0f0f0;
             margin-bottom: 20px;
         }
-        
-        /* Böyük İndir Düyməsi */
-        .download-btn {
-            display: block;
+        header h1 { color: #d32f2f; font-size: 1.8rem; text-transform: uppercase; }
+        header p { color: #666; font-size: 0.9rem; margin-top: 5px; }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding-bottom: 80px;
+        }
+
+        .post-card {
+            background-color: #ffffff;
             text-align: center;
-            background-color: #ef4444;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Böyük Mərkəzi Şəkil */
+        .post-image {
+            width: 180px;
+            height: auto;
+            margin-bottom: 25px;
+            object-fit: contain;
+        }
+
+        /* İri və oxunaqlı mətn */
+        .post-text {
+            font-size: 1.35rem;
+            line-height: 1.6;
+            color: #2c3e50;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding: 0 10px;
+            white-space: pre-line;
+        }
+
+        /* Böyük Yüklə Düyməsi */
+        .download-btn {
+            display: inline-block;
+            background-color: #d32f2f;
             color: #ffffff;
             text-decoration: none;
             font-weight: bold;
-            padding: 12px;
-            border-radius: 6px;
-            transition: background 0.2s;
+            font-size: 1.1rem;
+            padding: 14px 40px;
+            border-radius: 30px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+            transition: transform 0.2s, background 0.2s;
         }
         .download-btn:hover {
-            background-color: #dc2626;
+            background-color: #b71c1c;
+            transform: translateY(-2px);
         }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: #64748b;
-            font-size: 0.85rem;
+
+        /* 🟢 SABİT WHATSAPP DÜYMƏSİ (SOL KÜNC) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.2s;
         }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+
+        /* 🟠 YUXARI QALXMA OXU (SAĞ KÜNC) */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #f57c00;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .scroll-top:hover { background-color: #e65100; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>404 TEAM // DOWNLOAD CENTER</h1>
-            <p>Güvenilir, Sürətli və Tam Versiya Proqramların Yükləmə Platforması</p>
-        </header>
+    <header>
+        <h1>404 TEAM REPOSITORY</h1>
+        <p>Proqramlar və Konsol Modifikasiya Mərkəzi</p>
+    </header>
 
-        <div class="program-grid">
+    <div class="content-wrapper">
+        
+        <div class="post-card">
+            <img src="images/hfw493.png" alt="HFW 4.93" class="post-image">
+            <div class="post-text">Herkesin bildiği gibi HEN kırma yönteminin 4.93 güncelleme dosyasıdır. Burada sadece bilen ve aktif kullananlar için sadece indirme dosyası verilmiştir. Bu yöntemle kırmak isteyen müşterilerimiz üçün sitemizde çok detaylı anlatımdan faydalanabilir.</div>
             
-            <div class="program-card">
-                <div>
-                    <span class="badge game">Konsol</span>
-                    <div class="prog-title">PS3 HFW 4.93 HEN Güncelleme</div>
-                    <div class="prog-desc">PlayStation 3 konsollarını qırmaq və oyun yükləmək üçün istifadə olunan 4.93 HEN proqram təminatı.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge">Network</span>
-                    <div class="prog-title">Nmap Advanced Scanner</div>
-                    <div class="prog-desc">Şəbəkə təhlükəsizliyi analizi, port skan edilməsi və açıqların tapılması üçün professional alət.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge sys">Sistem</span>
-                    <div class="prog-title">Process Hacker Pro</div>
-                    <div class="prog-desc">Windows Task Manager-in daha güclü versiyası. Arxa plandakı gizli gizli proqramları tapır və bağlayır.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge game">MTA Mod</span>
-                    <div class="prog-title">MTA Custom Handling Editor</div>
-                    <div class="prog-desc">Multi Theft Auto serverlərində maşınların drift və sürət ayarlarını real vaxtda düzəltmək üçün script.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge">Network</span>
-                    <div class="prog-title">Wireshark Packet Analyzer</div>
-                    <div class="prog-desc">İnternet xəttinizdən keçən bütün məlumat paketlərini canlı olaraq izləmək və analiz etmək üçün.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge sys">Sistem</span>
-                    <div class="prog-title">BleachBit Clean Master</div>
-                    <div class="prog-desc">Sistemdəki bütün lazımsız keş və log fayllarını təmizləyərək kompüteri maksimum sürətləndirir.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge">Təhlükəsizlik</span>
-                    <div class="prog-title">VeraCrypt Full Disk Encryption</div>
-                    <div class="prog-desc">Gizli fayllarınızı və qovluqlarınızı qırılması qeyri-mümkün olan haker alqoritmləri ilə şifrələyin.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge game">Oyun Mod</span>
-                    <div class="prog-title">Counter-Strike 1.6 FPS Booster</div>
-                    <div class="prog-desc">CS 1.6 oyununda pingi salan və FPS-i maksimuma qaldıran xüsusi CFG və kod paketi.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge sys">Editor</span>
-                    <div class="prog-title">HxD Hex Editor Pro</div>
-                    <div class="prog-desc">Oyun fayllarını və ya proqramların daxili kodlarını (binary) birbaşa dəyişmək üçün istifadə olunan alət.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge sys">Editor</span>
-                    <div class="prog-title">Notepad++ Compiler Edition</div>
-                    <div class="prog-desc">Bütün proqramlaşdırma dillərini dəstəkləyən, sürətli və yüngül kod yazma redaktoru.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge">Network</span>
-                    <div class="prog-title">Advanced IP Scanner</div>
-                    <div class="prog-desc">Eyni Wi-Fi şəbəkəsinə qoşulan bütün telefon və kompüterlərin IP və MAC ünvanlarını tapır.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge">Təhlükəsizlik</span>
-                    <div class="prog-title">KeePassXC Offline Manager</div>
-                    <div class="prog-desc">Şifrələrinizi heç bir internet buluduna yükləmədən, tamamilə təhlükəsiz lokal bazada saxlayır.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge game">Oyun Mod</span>
-                    <div class="prog-title">PES Transfer Yamağı v1.0</div>
-                    <div class="prog-desc">PES oyunları üçün ən son transferləri və yeni sezon komanda heyətlərini aktiv edən Option File.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge">Network</span>
-                    <div class="prog-title">PuTTY SSH Client</div>
-                    <div class="prog-desc">Uzaqdakı Linux serverlərinə və ya Termux-a SSH protokolu vasitəsilə təhlükəsiz qoşulma aləti.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge">Network</span>
-                    <div class="prog-title">LOIC Network Stress Tool</div>
-                    <div class="prog-desc">Serverlərin dözümlülüyünü və paket yüklənməsini yoxlamaq üçün klassik şəbəkə aləti.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge sys">Sistem</span>
-                    <div class="prog-title">CPU-Z Hardware Monitor</div>
-                    <div class="prog-desc">Prosessor, RAM və ana plata barədə ən dəqiq texniki məlumatları göstərən kiçik proqram.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge sys">Sistem</span>
-                    <div class="prog-title">WinRAR Full Extractor</div>
-                    <div class="prog-desc">RAR, ZIP və ISO arxiv fayllarını açmaq və yüksək sıxılma dərəcəsi ilə arxivləşdirmək üçün.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge">Sistem</span>
-                    <div class="prog-title">Brave Browser (Ad-Blocker)</div>
-                    <div class="prog-desc">Bütün saytlardakı və YouTube-dakı reklamları avtomatik bloklayan sürətli və gizli internet brauzeri.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge sys">Sistem</span>
-                    <div class="prog-title">Revo Uninstaller Pro</div>
-                    <div class="prog-desc">Proqramları silərkən onların reyestr yaddaşında buraxdığı bütün gizli qalıqları tamamilə təmizləyir.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
-            <div class="program-card">
-                <div>
-                    <span class="badge">Təhlükəsizlik</span>
-                    <div class="prog-title">SubSeven Legacy Security Tool</div>
-                    <div class="prog-desc">Köhnə nəsil şəbəkə protokollarını və uzaqdan idarəetmə boşluqlarını test etmək üçün retro proqram.</div>
-                </div>
-                <a href="#" class="download-btn">Sürətli İndir</a>
-            </div>
-
+            <a href="https://disk.yandex.com.tr/d/VFJbWXGKt-5gDA" class="download-btn">Dosyayı İndir</a>
         </div>
+
     </div>
 
-    <footer>
-        © 2026 404 TEAM REPOSITORY. Bütün hüquqlar qorunur.
-    </footer>
+    <a href="https://wa.me/994XXXXXXXXX" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
+
+    <a href="#" class="scroll-top">▲</a>
 
 </body>
 </html>
-

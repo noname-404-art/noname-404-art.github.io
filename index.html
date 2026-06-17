@@ -3,86 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Team | Main Hub</title>
+    <title>404 Team | Terminal Hub</title>
     <style>
         body {
-            background-color: #0a0a0a;
+            background-color: #050505;
             color: #00ff00;
             font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             margin: 0;
-            overflow: hidden;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
         }
-        .container {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #00ff00;
+        .chat-box {
+            width: 100%;
+            max-width: 500px;
+            height: 80vh;
             background-color: #000;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-            border-radius: 5px;
-            max-width: 400px;
-            width: 90%;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px #00ff00;
-        }
-        p {
-            font-size: 1rem;
-            color: #888;
-            margin-bottom: 30px;
-        }
-        .links {
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            border-radius: 5px;
         }
-        .btn {
-            display: block;
-            padding: 12px;
-            color: #000;
-            background-color: #00ff00;
-            text-decoration: none;
+        .chat-header {
+            background-color: #111;
+            padding: 10px;
+            border-bottom: 1px solid #00ff00;
             font-weight: bold;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+            text-align: center;
+            letter-spacing: 1px;
         }
-        .btn:hover {
+        .chat-logs {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .msg {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+        .system { color: #888; }
+        .bot { color: #00ff00; }
+        .user { color: #00ffff; }
+        
+        .chat-actions {
+            padding: 10px;
+            background-color: #111;
+            border-top: 1px solid #00ff00;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .action-btn {
             background-color: #000;
             color: #00ff00;
             border: 1px solid #00ff00;
-            box-shadow: 0 0 15px #00ff00;
+            padding: 10px;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            transition: all 0.2s ease;
         }
-        .footer {
-            margin-top: 40px;
-            font-size: 0.8rem;
-            color: #444;
+        .action-btn:hover {
+            background-color: #00ff00;
+            color: #000;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>404 TEAM</h1>
-        <p>SYSTEM UNDERGROUND HUB</p>
-        
-        <div class="links">
-            <a href="#" class="btn">TELEGRAM BOT</a>
-            <a href="#" class="btn">GAME MODS</a>
-            <a href="#" class="btn">PROJECTS</a>
+    <div class="chat-box">
+        <div class="chat-header">
+            [ 404_TEAM_BOT v1.0.5 ]
         </div>
         
-        <div class="footer">
-            © 2026 404 Team. All rights reserved.
+        <div class="chat-logs" id="chatLogs">
+            <div class="msg system">>> Sistem başladıldı...</div>
+            <div class="msg bot"><b>BOT:</b> Xoş gəldiniz. Mən 404 Team sistem botiarındanam. Hansı məlumatı əldə etmək istəyirsiniz? Aşağıdakı əmrlərdən birini seçin.</div>
+        </div>
+        
+        <div class="chat-actions">
+            <button class="action-btn" onclick="sendCmd('bot')">🤖 TG Botu</button>
+            <button class="action-btn" onclick="sendCmd('mods')">🎮 Oyun Modları</button>
+            <button class="action-btn" onclick="sendCmd('team')">👥 Komanda</button>
+            <button class="action-btn" onclick="sendCmd('clear')">❌ Ekranı Təmizlə</button>
         </div>
     </div>
 
+    <script>
+        const logs = document.getElementById('chatLogs');
+
+        function sendCmd(type) {
+            if (type === 'clear') {
+                logs.innerHTML = '<div class="msg system">>> Ekran təmizləndi...</div>';
+                return;
+            }
+
+            let userText = "";
+            let botResponse = "";
+
+            if (type === 'bot') {
+                userText = "Telegram Bot haqqında məlumat ver.";
+                botResponse = "<b>BOT:</b> E4004 Telegram botumuz aktivdir! Videoları yükləmək, IP skan etmək və idarəetmə paneli üçün istifadə olunur. Tezliklə yenilənmə linki bura əlavə ediləcək.";
+            } else if (type === 'mods') {
+                userText = "Oyun modifikasiyalarını göstər.";
+                botResponse = "<b>BOT:</b> ELISH MOD layihəmiz çərçivəsində PES 2013 və PES 2021 üçün 2026 transfer yeniləmələri hazırlanır. Yükləmə linkləri tamamlanmaq üzrədir.";
+            } else if (type === 'team') {
+                userText = "Komanda statusu nədir?";
+                botResponse = "<b>BOT:</b> 404 Team aktiv rejimdədir. Menecerlər və hücum qrupları öz vəzifələrini icra edir. Sistem tam qorunur.";
+            }
+
+            // İstifadəçinin mesajını ekrana yaz
+            logs.innerHTML += `<div class="msg user"><b>Sən:</b> ${userText}</div>`;
+            
+            // Botun cavabını 0.5 saniyə gecikmə ilə bura yaz (canlı çat effekti vermək üçün)
+            setTimeout(() => {
+                logs.innerHTML += `<div class="msg bot">${botResponse}</div>`;
+                logs.scrollTop = logs.scrollHeight; // Ekranı avtomatik aşağı sürüşdür
+            }, 500);
+        }
+    </script>
+
 </body>
 </html>
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 TEAM // SECURE LOGIN</title>
+    <title>404 TEAM // MULTI-USER HUB</title>
     <style>
         * {
             box-sizing: border-box;
@@ -58,7 +58,7 @@
             padding: 25px;
         }
         
-        /* GİRİŞ PANELİ (LOGIN) DIZAYNI */
+        /* LOGIN PANEL */
         #loginScreen {
             display: flex;
             flex-direction: column;
@@ -111,15 +111,15 @@
         }
         #errorMsg {
             color: #ff3333;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: bold;
             margin-top: 5px;
             display: none;
         }
 
-        /* ƏSAS MƏZMUN (GİRİŞDƏN SONRA GÖRÜNƏN YER) */
+        /* MAIN CONTENT */
         #mainContent {
-            display: none; /* İlk başda gizlidir */
+            display: none;
         }
         .brand {
             font-size: 2rem;
@@ -132,7 +132,246 @@
         .subtitle {
             color: #ff3333;
             font-size: 0.9rem;
-            margin-bottom: 25
+            margin-bottom: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .section-title {
+            color: #555;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #222;
+            padding-bottom: 4px;
+        }
+        .info-box {
+            background-color: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: #00ff66;
+        }
+        .status-box {
+            background-color: #091a0c;
+            border: 1px solid #00ff66;
+            color: #00ff66;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .team-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .member {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0d0d0d;
+            border-left: 3px solid #ff3333;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95rem;
+        }
+        .role {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .status-badge.online {
+            background-color: #00ff66;
+            color: #000;
+        }
+        .status-badge.offline {
+            background-color: #222;
+            color: #666;
+        }
+        .download-zone {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .download-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0d0d0d;
+            border: 1px solid #333;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 18px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        .download-btn:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .file-size {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            border: 1px solid currentColor;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-card">
+        <div class="terminal-header">
+            <div class="dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="title">NET_PORT_404 // SECURE_GATE</div>
+            <div></div>
+        </div>
+        
+        <div class="terminal-body">
+            
+            <div id="loginScreen">
+                <div class="login-title">> SYSTEM AUTHENTICATION</div>
+                <div class="input-group">
+                    <label>İstifadəçi Adı (Username):</label>
+                    <input type="text" id="usernameInput" class="terminal-input" placeholder="İstifadəçi adı yazın..." autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label>Şifrə (Password):</label>
+                    <input type="password" id="passwordInput" class="terminal-input" placeholder="Şifrə yazın...">
+                </div>
+                <button class="login-btn" onclick="checkLogin()">LOG IN</button>
+                <div id="errorMsg"></div>
+            </div>
+
+            <div id="mainContent">
+                <div class="brand">404 Team</div>
+                <div class="subtitle">// SECURE NETWORK HUB</div>
+                
+                <div id="welcomeMessage" class="status-box"></div>
+                
+                <div class="section-title">COMMUNICATION</div>
+                <div class="info-box">
+                    Discord ID: <span class="highlight">@96le</span>
+                </div>
+                
+                <div class="section-title">TEAM ROSTER & NETWORK STATUS</div>
+                <div class="team-list">
+                    <div class="member" style="border-left-color: #00ff66;">
+                        <div>
+                            <span>@elsever</span>
+                            <span class="role">(Admin / Creator)</span>
+                        </div>
+                        <span id="status-creator" class="status-badge offline">OFFLINE</span>
+                    </div>
+                    <div class="member">
+                        <div>
+                            <span>@alp</span>
+                            <span class="role">(Lider)</span>
+                        </div>
+                        <span id="status-alp" class="status-badge offline">OFFLINE</span>
+                    </div>
+                    <div class="member">
+                        <div>
+                            <span>@specter</span>
+                            <span class="role">(Lider)</span>
+                        </div>
+                        <span id="status-specter" class="status-badge offline">OFFLINE</span>
+                    </div>
+                </div>
+                
+                <div class="section-title">SECURE FILES</div>
+                <div class="download-zone">
+                    <a href="#" target="_blank" class="download-btn" style="border-color: #00ff66; color: #00ff66;">
+                        <span>📥 PS3 SİSTEM GÜCLƏNDİRMƏSİ v4.93</span>
+                        <span class="file-size">RAR // 195 MB</span>
+                    </a>
+                    <a href="#" target="_blank" class="download-btn" style="border-color: #00ffff; color: #00ffff;">
+                        <span>🚗 MTA VEHICLE HANDLING SETTINGS</span>
+                        <span class="file-size">TXT // 8 KB</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // 🔐 İstifadəçi Hesabları və Şifrələri
+        const usersDatabase = {
+            "elsever": { pass: "404team", role: "admin" }, // Sənin təyin etdiyin Admin hesabı
+            "alp": { pass: "alp123", role: "user" },       // Alp-ın öz şifrəsi (bunu dəyişə bilər)
+            "specter": { pass: "spec404", role: "user" }   // Specter-in öz şifrəsi (bunu dəyişə bilər)
+        };
+
+        function checkLogin() {
+            const user = document.getElementById('usernameInput').value.toLowerCase().trim();
+            const pass = document.getElementById('passwordInput').value;
+            const error = document.getElementById('errorMsg');
+            const loginScr = document.getElementById('loginScreen');
+            const mainCnt = document.getElementById('mainContent');
+            const welcome = document.getElementById('welcomeMessage');
+
+            if (user === "" || pass === "") {
+                error.style.display = "block";
+                error.innerText = ">> XƏTA: Giriş məlumatları boş ola bilməz!";
+                return;
+            }
+
+            if (usersDatabase[user] && usersDatabase[user].pass === pass) {
+                error.style.display = "none";
+                loginScr.style.display = "none";
+                mainCnt.style.display = "block";
+                
+                if (usersDatabase[user].role === "admin") {
+                    welcome.innerText = `> SİSTEMƏ DAXİL OLUNDU: Xoş gəldiniz, Baş Admin @${user}!`;
+                } else {
+                    welcome.innerText = `> SİSTEMƏ DAXİL OLUNDU: Xoş gəldin, @${user}!`;
+                }
+
+                // Online Paneli Simulyasiyası
+                if (user === "elsever") {
+                    document.getElementById('status-creator').className = "status-badge online";
+                    document.getElementById('status-creator').innerText = "ONLINE";
+                    document.getElementById('status-alp').className = "status-badge online";
+                    document.getElementById('status-alp').innerText = "ONLINE";
+                } else if (user === "alp") {
+                    document.getElementById('status-alp').className = "status-badge online";
+                    document.getElementById('status-alp').innerText = "ONLINE";
+                    document.getElementById('status-creator').className = "status-badge online";
+                    document.getElementById('status-creator').innerText = "ONLINE";
+                } else if (user === "specter") {
+                    document.getElementById('status-specter').className = "status-badge online";
+                    document.getElementById('status-specter').innerText = "ONLINE";
+                }
+            } else {
+                error.style.display = "block";
+                error.innerText = ">> XƏTA: Giriş rədd edildi! Şifrə və ya İstifadəçi adı səhvdir.";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
 
 
 

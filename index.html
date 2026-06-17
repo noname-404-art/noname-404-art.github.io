@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 TEAM // MULTI-USER HUB</title>
+    <title>404 TEAM // NETWORK HUB</title>
     <style>
         * {
             box-sizing: border-box;
@@ -76,6 +76,7 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
+            position: relative;
         }
         .input-group label {
             color: #888;
@@ -90,10 +91,34 @@
             font-size: 1rem;
             border-radius: 4px;
             outline: none;
+            width: 100%;
         }
         .terminal-input:focus {
             border-color: #00ff66;
         }
+        .pass-toggle {
+            position: absolute;
+            right: 12px;
+            top: 35px;
+            color: #666;
+            cursor: pointer;
+            font-size: 0.85rem;
+            user-select: none;
+        }
+        .pass-toggle:hover { color: #00ff66; }
+        
+        .remember-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #888;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .remember-box input {
+            accent-color: #ff3333;
+        }
+
         .login-btn {
             background-color: #ff3333;
             color: #fff;
@@ -106,9 +131,7 @@
             font-size: 1rem;
             transition: background-color 0.2s;
         }
-        .login-btn:hover {
-            background-color: #cc0000;
-        }
+        .login-btn:hover { background-color: #cc0000; }
         #errorMsg {
             color: #ff3333;
             font-size: 0.95rem;
@@ -118,24 +141,42 @@
         }
 
         /* MAIN CONTENT */
-        #mainContent {
-            display: none;
+        #mainContent { display: none; }
+        .brand-zone {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
         }
         .brand {
             font-size: 2rem;
             font-weight: bold;
             color: #ffffff;
             letter-spacing: 3px;
-            margin-bottom: 5px;
             text-transform: uppercase;
         }
         .subtitle {
             color: #ff3333;
             font-size: 0.9rem;
-            margin-bottom: 25px;
             font-weight: bold;
             letter-spacing: 1px;
         }
+        .logout-btn {
+            background-color: transparent;
+            border: 1px solid #ff3333;
+            color: #ff3333;
+            padding: 6px 12px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .logout-btn:hover {
+            background-color: #ff3333;
+            color: #fff;
+        }
+
         .section-title {
             color: #555;
             font-size: 0.8rem;
@@ -144,18 +185,6 @@
             margin-bottom: 12px;
             border-bottom: 1px dashed #222;
             padding-bottom: 4px;
-        }
-        .info-box {
-            background-color: #0d0d0d;
-            border: 1px solid #1a1a1a;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        .highlight {
-            color: #00ff66;
         }
         .status-box {
             background-color: #091a0c;
@@ -167,6 +196,8 @@
             margin-bottom: 20px;
             font-weight: bold;
         }
+        
+        /* TEAM LIST */
         .team-list {
             display: flex;
             flex-direction: column;
@@ -183,9 +214,23 @@
             border-radius: 0 4px 4px 0;
             font-size: 0.95rem;
         }
+        .member-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .profile-pic {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #333;
+            background-color: #111;
+        }
         .role {
             color: #888;
             font-size: 0.85rem;
+            display: block;
         }
         .status-badge {
             font-size: 0.75rem;
@@ -193,14 +238,9 @@
             border-radius: 3px;
             font-weight: bold;
         }
-        .status-badge.online {
-            background-color: #00ff66;
-            color: #000;
-        }
-        .status-badge.offline {
-            background-color: #222;
-            color: #666;
-        }
+        .status-badge.online { background-color: #00ff66; color: #000; }
+        .status-badge.offline { background-color: #222; color: #666; }
+
         .download-zone {
             display: flex;
             flex-direction: column;
@@ -238,11 +278,11 @@
     <div class="terminal-card">
         <div class="terminal-header">
             <div class="dots">
-                <div class="dot red"></div>
+                <div class="dot red" onclick="logout()"></div>
                 <div class="dot yellow"></div>
                 <div class="dot green"></div>
             </div>
-            <div class="title">NET_PORT_404 // SECURE_GATE</div>
+            <div class="title">NET_PORT_404 // CONSOLE_HUB</div>
             <div></div>
         </div>
         
@@ -252,47 +292,62 @@
                 <div class="login-title">> SYSTEM AUTHENTICATION</div>
                 <div class="input-group">
                     <label>İstifadəçi Adı (Username):</label>
-                    <input type="text" id="usernameInput" class="terminal-input" placeholder="İstifadəçi adı yazın..." autocomplete="off">
+                    <input type="text" id="usernameInput" class="terminal-input" placeholder="İstifadəçi adı..." autocomplete="off">
                 </div>
                 <div class="input-group">
                     <label>Şifrə (Password):</label>
-                    <input type="password" id="passwordInput" class="terminal-input" placeholder="Şifrə yazın...">
+                    <input type="password" id="passwordInput" class="terminal-input" placeholder="Şifrə...">
+                    <span class="pass-toggle" onclick="togglePassword()">[GÖSTER]</span>
                 </div>
+                
+                <label class="remember-box">
+                    <input type="checkbox" id="rememberMe"> Məni yadda saxla
+                </label>
+
                 <button class="login-btn" onclick="checkLogin()">LOG IN</button>
                 <div id="errorMsg"></div>
             </div>
 
             <div id="mainContent">
-                <div class="brand">404 Team</div>
-                <div class="subtitle">// SECURE NETWORK HUB</div>
+                <div class="brand-zone">
+                    <div>
+                        <div class="brand">404 Team</div>
+                        <div class="subtitle">// SECURE NETWORK HUB</div>
+                    </div>
+                    <button class="logout-btn" onclick="logout()">DISCONNECT</button>
+                </div>
                 
                 <div id="welcomeMessage" class="status-box"></div>
                 
-                <div class="section-title">COMMUNICATION</div>
-                <div class="info-box">
-                    Discord ID: <span class="highlight">@96le</span>
-                </div>
-                
-                <div class="section-title">TEAM ROSTER & NETWORK STATUS</div>
+                <div class="section-title">TEAM ROSTER & PROFILES</div>
                 <div class="team-list">
                     <div class="member" style="border-left-color: #00ff66;">
-                        <div>
-                            <span>@elsever</span>
-                            <span class="role">(Admin / Creator)</span>
+                        <div class="member-info">
+                            <img src="https://i.imgur.com/yXOVD9s.png" class="profile-pic" alt="avatar">
+                            <div>
+                                <span>@elsever</span>
+                                <span class="role">(Admin / Creator)</span>
+                            </div>
                         </div>
                         <span id="status-creator" class="status-badge offline">OFFLINE</span>
                     </div>
                     <div class="member">
-                        <div>
-                            <span>@alp</span>
-                            <span class="role">(Lider)</span>
+                        <div class="member-info">
+                            <img src="https://i.imgur.com/yXOVD9s.png" class="profile-pic" alt="avatar">
+                            <div>
+                                <span>@alp</span>
+                                <span class="role">Lider</span>
+                            </div>
                         </div>
                         <span id="status-alp" class="status-badge offline">OFFLINE</span>
                     </div>
                     <div class="member">
-                        <div>
-                            <span>@specter</span>
-                            <span class="role">(Lider)</span>
+                        <div class="member-info">
+                            <img src="https://i.imgur.com/yXOVD9s.png" class="profile-pic" alt="avatar">
+                            <div>
+                                <span>@specter</span>
+                                <span class="role">Lider</span>
+                            </div>
                         </div>
                         <span id="status-specter" class="status-badge offline">OFFLINE</span>
                     </div>
@@ -304,10 +359,6 @@
                         <span>📥 PS3 SİSTEM GÜCLƏNDİRMƏSİ v4.93</span>
                         <span class="file-size">RAR // 195 MB</span>
                     </a>
-                    <a href="#" target="_blank" class="download-btn" style="border-color: #00ffff; color: #00ffff;">
-                        <span>🚗 MTA VEHICLE HANDLING SETTINGS</span>
-                        <span class="file-size">TXT // 8 KB</span>
-                    </a>
                 </div>
             </div>
 
@@ -315,62 +366,102 @@
     </div>
 
     <script>
-        // 🔐 İstifadəçi Hesabları və Şifrələri
         const usersDatabase = {
-            "elsever": { pass: "404team", role: "admin" }, // Sənin təyin etdiyin Admin hesabı
-            "alp": { pass: "alp123", role: "user" },       // Alp-ın öz şifrəsi (bunu dəyişə bilər)
-            "specter": { pass: "spec404", role: "user" }   // Specter-in öz şifrəsi (bunu dəyişə bilər)
+            "elsever": { pass: "404team", role: "admin" },
+            "alp": { pass: "alp123", role: "user" },
+            "specter": { pass: "spec404", role: "user" }
         };
+
+        // Oturumu avtomatik yoxlamaq (Remember Me üçün)
+        window.onload = function() {
+            const savedUser = localStorage.getItem('loggedUser');
+            if (savedUser && usersDatabase[savedUser]) {
+                showDashboard(savedUser);
+            }
+            
+            // Enter düyməsi ilə giriş dəstəyi
+            document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') checkLogin();
+            });
+            document.getElementById('usernameInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') checkLogin();
+            });
+        };
+
+        function togglePassword() {
+            const passInput = document.getElementById('passwordInput');
+            const toggleText = document.querySelector('.pass-toggle');
+            if (passInput.type === 'password') {
+                passInput.type = 'text';
+                toggleText.innerText = '[GİZLET]';
+            } else {
+                passInput.type = 'password';
+                toggleText.innerText = '[GÖSTER]';
+            }
+        }
 
         function checkLogin() {
             const user = document.getElementById('usernameInput').value.toLowerCase().trim();
             const pass = document.getElementById('passwordInput').value;
             const error = document.getElementById('errorMsg');
-            const loginScr = document.getElementById('loginScreen');
-            const mainCnt = document.getElementById('mainContent');
-            const welcome = document.getElementById('welcomeMessage');
+            const remember = document.getElementById('rememberMe').checked;
 
             if (user === "" || pass === "") {
                 error.style.display = "block";
-                error.innerText = ">> XƏTA: Giriş məlumatları boş ola bilməz!";
+                error.innerText = ">> XƏTA: Boş buraxıla bilməz!";
                 return;
             }
 
             if (usersDatabase[user] && usersDatabase[user].pass === pass) {
-                error.style.display = "none";
-                loginScr.style.display = "none";
-                mainCnt.style.display = "block";
-                
-                if (usersDatabase[user].role === "admin") {
-                    welcome.innerText = `> SİSTEMƏ DAXİL OLUNDU: Xoş gəldiniz, Baş Admin @${user}!`;
-                } else {
-                    welcome.innerText = `> SİSTEMƏ DAXİL OLUNDU: Xoş gəldin, @${user}!`;
+                if (remember) {
+                    localStorage.setItem('loggedUser', user); // Yadda saxla
                 }
-
-                // Online Paneli Simulyasiyası
-                if (user === "elsever") {
-                    document.getElementById('status-creator').className = "status-badge online";
-                    document.getElementById('status-creator').innerText = "ONLINE";
-                    document.getElementById('status-alp').className = "status-badge online";
-                    document.getElementById('status-alp').innerText = "ONLINE";
-                } else if (user === "alp") {
-                    document.getElementById('status-alp').className = "status-badge online";
-                    document.getElementById('status-alp').innerText = "ONLINE";
-                    document.getElementById('status-creator').className = "status-badge online";
-                    document.getElementById('status-creator').innerText = "ONLINE";
-                } else if (user === "specter") {
-                    document.getElementById('status-specter').className = "status-badge online";
-                    document.getElementById('status-specter').innerText = "ONLINE";
-                }
+                showDashboard(user);
             } else {
                 error.style.display = "block";
-                error.innerText = ">> XƏTA: Giriş rədd edildi! Şifrə və ya İstifadəçi adı səhvdir.";
+                error.innerText = ">> XƏTA: Şifrə və ya istifadəçi adı səhvdir.";
             }
+        }
+
+        function showDashboard(user) {
+            document.getElementById('errorMsg').style.display = "none";
+            document.getElementById('loginScreen').style.display = "none";
+            document.getElementById('mainContent').style.display = "block";
+            
+            const welcome = document.getElementById('welcomeMessage');
+            welcome.innerText = usersDatabase[user].role === "admin" 
+                ? `> OVERLORD ACCESS: Salam, Baş Admin @${user}!`
+                : `> OPERATOR ACCESS: Salam, @${user}!`;
+
+            // Online vəziyyətləri
+            if (user === "elsever") {
+                document.getElementById('status-creator').className = "status-badge online";
+                document.getElementById('status-creator').innerText = "ONLINE";
+                document.getElementById('status-alp').className = "status-badge online";
+                document.getElementById('status-alp').innerText = "ONLINE";
+            } else if (user === "alp") {
+                document.getElementById('status-alp').className = "status-badge online";
+                document.getElementById('status-alp').innerText = "ONLINE";
+                document.getElementById('status-creator').className = "status-badge online";
+                document.getElementById('status-creator').innerText = "ONLINE";
+            } else if (user === "specter") {
+                document.getElementById('status-specter').className = "status-badge online";
+                document.getElementById('status-specter').innerText = "ONLINE";
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedUser'); // Yaddaşı təmizlə
+            document.getElementById('usernameInput').value = "";
+            document.getElementById('passwordInput').value = "";
+            document.getElementById('mainContent').style.display = "none";
+            document.getElementById('loginScreen').style.display = "flex";
         }
     </script>
 
 </body>
 </html>
+
 
 
 

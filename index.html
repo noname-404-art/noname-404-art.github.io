@@ -3,132 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Team | Terminal Hub</title>
+    <title>404 TEAM // NETWORK HUB</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
             background-color: #050505;
-            color: #00ff00;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 15px;
+            color: #ffffff;
+            font-family: 'Consolas', 'Courier New', monospace;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 95vh;
+            min-height: 100vh;
+            padding: 20px;
         }
-        .chat-box {
+        .terminal-card {
             width: 100%;
-            max-width: 500px;
-            height: 80vh;
-            background-color: #000;
-            border: 1px solid #00ff00;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            border-radius: 5px;
+            max-width: 550px;
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
         }
-        .chat-header {
+        .terminal-header {
             background-color: #111;
-            padding: 10px;
-            border-bottom: 1px solid #00ff00;
-            font-weight: bold;
-            text-align: center;
+            padding: 12px;
+            border-bottom: 1px solid #222;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot.red { background-color: #ff5f56; }
+        .dot.yellow { background-color: #ffbd2e; }
+        .dot.green { background-color: #27c93f; }
+        .title {
+            color: #666;
+            font-size: 0.85rem;
             letter-spacing: 1px;
         }
-        .chat-logs {
-            flex: 1;
+        .terminal-body {
+            padding: 25px;
+        }
+        .brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .subtitle {
+            color: #ff3333;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .section-title {
+            color: #555;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #222;
+            padding-bottom: 4px;
+        }
+        .info-box {
+            background-color: #0d0d0d;
+            border: 1px solid #1a1a1a;
             padding: 15px;
-            overflow-y: auto;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: #00ff66;
+        }
+        .team-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .member {
+            display: flex;
+            justify-content: space-between;
+            background-color: #0d0d0d;
+            border-left: 3px solid #ff3333;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95rem;
+        }
+        .role {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .social-links {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        .msg {
-            margin: 5px 0;
-            line-height: 1.4;
-        }
-        .system { color: #888; }
-        .bot { color: #00ff00; }
-        .user { color: #00ffff; }
-        
-        .chat-actions {
-            padding: 10px;
-            background-color: #111;
-            border-top: 1px solid #00ff00;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             gap: 10px;
-        }
-        .action-btn {
-            background-color: #000;
-            color: #00ff00;
-            border: 1px solid #00ff00;
-            padding: 10px;
-            cursor: pointer;
-            font-family: 'Courier New', Courier, monospace;
+            background-color: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 4px;
             font-weight: bold;
-            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
-        .action-btn:hover {
-            background-color: #00ff00;
-            color: #000;
+        .social-btn:hover {
+            background-color: #111;
+            color: #ffffff;
+            border: 1px solid #333;
         }
     </style>
 </head>
 <body>
 
-    <div class="chat-box">
-        <div class="chat-header">
-            [ 404_TEAM_BOT v1.0.5 ]
+    <div class="terminal-card">
+        <div class="terminal-header">
+            <div class="dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="title">NET_PORT_404 // SECURE</div>
+            <div></div>
         </div>
         
-        <div class="chat-logs" id="chatLogs">
-            <div class="msg system">>> Sistem başladıldı...</div>
-            <div class="msg bot"><b>BOT:</b> Xoş gəldiniz. Mən 404 Team sistem botiarındanam. Hansı məlumatı əldə etmək istəyirsiniz? Aşağıdakı əmrlərdən birini seçin.</div>
-        </div>
-        
-        <div class="chat-actions">
-            <button class="action-btn" onclick="sendCmd('bot')">🤖 TG Botu</button>
-            <button class="action-btn" onclick="sendCmd('mods')">🎮 Oyun Modları</button>
-            <button class="action-btn" onclick="sendCmd('team')">👥 Komanda</button>
-            <button class="action-btn" onclick="sendCmd('clear')">❌ Ekranı Təmizlə</button>
+        <div class="terminal-body">
+            <div class="brand">404 Team</div>
+            <div class="subtitle">// UNDERGROUND DIVISION</div>
+            
+            <div class="section-title">COMMUNICATION</div>
+            <div class="info-box">
+                Bizimlə əlaqə qurmaq və ya məlumat mübadiləsi aparmaq üçün <span class="highlight">Discord</span> üzərindən əlaqə saxlaya bilərsiniz:<br>
+                <span class="highlight">ID: @96le</span>
+            </div>
+            
+            <div class="section-title">MANAGEMENT & CREATORS</div>
+            <div class="team-list">
+                <div class="member">
+                    <span>@alp</span>
+                    <span class="role">Ekip Lideri</span>
+                </div>
+                <div class="member">
+                    <span>@specter</span>
+                    <span class="role">Ekip Lideri</span>
+                </div>
+                <div class="member" style="border-left-color: #00ff66;">
+                    <span>@noname-404-art</span>
+                    <span class="role">Developer / Creator</span>
+                </div>
+            </div>
+            
+            <div class="section-title">EXTERNAL LINKS</div>
+            <div class="social-links">
+                <a href="https://discord.com" target="_blank" class="social-btn">
+                    <span>OPEN DISCORD</span>
+                </a>
+            </div>
         </div>
     </div>
 
-    <script>
-        const logs = document.getElementById('chatLogs');
-
-        function sendCmd(type) {
-            if (type === 'clear') {
-                logs.innerHTML = '<div class="msg system">>> Ekran təmizləndi...</div>';
-                return;
-            }
-
-            let userText = "";
-            let botResponse = "";
-
-            if (type === 'bot') {
-                userText = "Telegram Bot haqqında məlumat ver.";
-                botResponse = "<b>BOT:</b> E4004 Telegram botumuz aktivdir! Videoları yükləmək, IP skan etmək və idarəetmə paneli üçün istifadə olunur. Tezliklə yenilənmə linki bura əlavə ediləcək.";
-            } else if (type === 'mods') {
-                userText = "Oyun modifikasiyalarını göstər.";
-                botResponse = "<b>BOT:</b> ELISH MOD layihəmiz çərçivəsində PES 2013 və PES 2021 üçün 2026 transfer yeniləmələri hazırlanır. Yükləmə linkləri tamamlanmaq üzrədir.";
-            } else if (type === 'team') {
-                userText = "Komanda statusu nədir?";
-                botResponse = "<b>BOT:</b> 404 Team aktiv rejimdədir. Menecerlər və hücum qrupları öz vəzifələrini icra edir. Sistem tam qorunur.";
-            }
-
-            // İstifadəçinin mesajını ekrana yaz
-            logs.innerHTML += `<div class="msg user"><b>Sən:</b> ${userText}</div>`;
-            
-            // Botun cavabını 0.5 saniyə gecikmə ilə bura yaz (canlı çat effekti vermək üçün)
-            setTimeout(() => {
-                logs.innerHTML += `<div class="msg bot">${botResponse}</div>`;
-                logs.scrollTop = logs.scrollHeight; // Ekranı avtomatik aşağı sürüşdür
-            }, 500);
-        }
-    </script>
-
 </body>
 </html>
+
 

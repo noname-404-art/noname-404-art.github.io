@@ -112,29 +112,40 @@
             color: #888;
             font-size: 0.85rem;
         }
-        .social-links {
+        
+        /* Fayl Yükləmə Düymələri üçün Yeni Dizayn */
+        .download-zone {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
-        .social-btn {
+        .download-btn {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #ffffff;
-            color: #000000;
+            background-color: #0d0d0d;
+            border: 1px solid #00ff66;
+            color: #00ff66;
             text-decoration: none;
-            padding: 12px;
+            padding: 14px 18px;
             border-radius: 4px;
             font-weight: bold;
             font-size: 0.95rem;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.1);
         }
-        .social-btn:hover {
-            background-color: #111;
-            color: #ffffff;
-            border: 1px solid #333;
+        .download-btn:hover {
+            background-color: #00ff66;
+            color: #000000;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+            transform: translateY(-1px);
+        }
+        .file-size {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            border: 1px solid currentColor;
+            padding: 2px 6px;
+            border-radius: 3px;
         }
     </style>
 </head>
@@ -157,7 +168,7 @@
             
             <div class="section-title">COMMUNICATION</div>
             <div class="info-box">
-                Bizimlə əlaqə qurmaq və ya məlumat mübadiləsi aparmaq üçün <span class="highlight">Discord</span> üzərindən əlaqə saxlaya bilərsiniz:<br>
+                Bizimlə əlaqə qurmaq üçün <span class="highlight">Discord</span> üzərindən yazın:<br>
                 <span class="highlight">ID: @96le</span>
             </div>
             
@@ -177,16 +188,26 @@
                 </div>
             </div>
             
-            <div class="section-title">EXTERNAL LINKS</div>
-            <div class="social-links">
-                <a href="https://discord.com" target="_blank" class="social-btn">
-                    <span>OPEN DISCORD</span>
+            <div class="section-title">DOWNLOAD CENTER (SYSTEM MODS)</div>
+            <div class="download-zone">
+                
+                <a href="https://disk.yandex.com.tr/d/VFJbWXGKt-5gDA" target="_blank" class="download-btn">
+                    <span>📥 PS3 SİSTEM GÜCLƏNDİRMƏSİ v4.93</span>
+                    <span class="file-size">RAR // 195 MB</span>
                 </a>
+
+                <a href="#" class="download-btn" style="border-color: #ff3333; color: #ff3333;">
+                    <span>📥 TELEGRAM BOT SCRIPT (E4004)</span>
+                    <span class="file-size">ZIP // 12 KB</span>
+                </a>
+                
             </div>
         </div>
     </div>
 
 </body>
 </html>
+
+
 
 

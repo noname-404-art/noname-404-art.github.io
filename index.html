@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 TEAM // NETWORK HUB</title>
+    <title>404 TEAM // CYBER OPERATIONS HUB</title>
     <style>
         * {
             box-sizing: border-box;
@@ -22,7 +22,7 @@
         }
         .terminal-card {
             width: 100%;
-            max-width: 550px;
+            max-width: 700px;
             background-color: #0a0a0a;
             border: 1px solid #333;
             border-radius: 6px;
@@ -37,240 +37,59 @@
             align-items: center;
             justify-content: space-between;
         }
-        .dots {
-            display: flex;
-            gap: 6px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
+        .dots { display: flex; gap: 6px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
         .dot.red { background-color: #ff5f56; }
         .dot.yellow { background-color: #ffbd2e; }
         .dot.green { background-color: #27c93f; }
-        .title {
-            color: #666;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-        .terminal-body {
-            padding: 25px;
-        }
+        .title { color: #666; font-size: 0.85rem; letter-spacing: 1px; }
+        .terminal-body { padding: 25px; }
         
         /* LOGIN PANEL */
-        #loginScreen {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .login-title {
-            color: #ff3333;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            position: relative;
-        }
-        .input-group label {
-            color: #888;
-            font-size: 0.85rem;
-        }
-        .terminal-input {
-            background-color: #000;
-            border: 1px solid #333;
-            color: #00ff66;
-            padding: 12px;
-            font-family: 'Consolas', 'Courier New', monospace;
-            font-size: 1rem;
-            border-radius: 4px;
-            outline: none;
-            width: 100%;
-        }
-        .terminal-input:focus {
-            border-color: #00ff66;
-        }
-        .pass-toggle {
-            position: absolute;
-            right: 12px;
-            top: 35px;
-            color: #666;
-            cursor: pointer;
-            font-size: 0.85rem;
-            user-select: none;
-        }
+        #loginScreen { display: flex; flex-direction: column; gap: 15px; }
+        .login-title { color: #ff3333; font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .input-group { display: flex; flex-direction: column; gap: 5px; position: relative; }
+        .input-group label { color: #888; font-size: 0.85rem; }
+        .terminal-input { background-color: #000; border: 1px solid #333; color: #00ff66; padding: 12px; font-family: 'Consolas', monospace; font-size: 1rem; border-radius: 4px; outline: none; width: 100%; }
+        .terminal-input:focus { border-color: #00ff66; }
+        .pass-toggle { position: absolute; right: 12px; top: 35px; color: #666; cursor: pointer; font-size: 0.85rem; user-select: none; }
         .pass-toggle:hover { color: #00ff66; }
-        
-        .remember-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #888;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
-        .remember-box input {
-            accent-color: #ff3333;
-        }
-
-        .login-btn {
-            background-color: #ff3333;
-            color: #fff;
-            border: none;
-            padding: 12px;
-            font-family: 'Consolas', 'Courier New', monospace;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: background-color 0.2s;
-        }
+        .remember-box { display: flex; align-items: center; gap: 8px; color: #888; font-size: 0.85rem; cursor: pointer; }
+        .remember-box input { accent-color: #ff3333; }
+        .login-btn { background-color: #ff3333; color: #fff; border: none; padding: 12px; font-family: 'Consolas', monospace; font-weight: bold; cursor: pointer; border-radius: 4px; font-size: 1rem; }
         .login-btn:hover { background-color: #cc0000; }
-        #errorMsg {
-            color: #ff3333;
-            font-size: 0.95rem;
-            font-weight: bold;
-            margin-top: 5px;
-            display: none;
-        }
+        #errorMsg { color: #ff3333; font-size: 0.95rem; font-weight: bold; display: none; }
 
-        /* MAIN CONTENT */
+        /* MAIN DASHBOARD */
         #mainContent { display: none; }
-        .brand-zone {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-        .brand {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ffffff;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        .subtitle {
-            color: #ff3333;
-            font-size: 0.9rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        .logout-btn {
-            background-color: transparent;
-            border: 1px solid #ff3333;
-            color: #ff3333;
-            padding: 6px 12px;
-            font-family: 'Consolas', monospace;
-            font-size: 0.8rem;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        .logout-btn:hover {
-            background-color: #ff3333;
-            color: #fff;
-        }
-
-        .section-title {
-            color: #555;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            border-bottom: 1px dashed #222;
-            padding-bottom: 4px;
-        }
-        .status-box {
-            background-color: #091a0c;
-            border: 1px solid #00ff66;
-            color: #00ff66;
-            padding: 10px 15px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
+        .brand-zone { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+        .brand { font-size: 2rem; font-weight: bold; color: #ffffff; letter-spacing: 3px; text-transform: uppercase; }
+        .subtitle { color: #ff3333; font-size: 0.9rem; font-weight: bold; }
+        .logout-btn { background-color: transparent; border: 1px solid #ff3333; color: #ff3333; padding: 6px 12px; font-family: 'Consolas', monospace; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        .logout-btn:hover { background-color: #ff3333; color: #fff; }
+        .section-title { color: #555; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; margin-bottom: 12px; border-bottom: 1px dashed #222; padding-bottom: 4px; }
+        .status-box { background-color: #091a0c; border: 1px solid #00ff66; color: #00ff66; padding: 10px 15px; border-radius: 4px; font-size: 0.9rem; margin-bottom: 15px; font-weight: bold; }
         
-        /* TEAM LIST */
-        .team-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        .member {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #0d0d0d;
-            border-left: 3px solid #ff3333;
-            padding: 10px 15px;
-            border-radius: 0 4px 4px 0;
-            font-size: 0.95rem;
-        }
-        .member-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .profile-pic {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid #333;
-            background-color: #111;
-        }
-        .role {
-            color: #888;
-            font-size: 0.85rem;
-            display: block;
-        }
-        .status-badge {
-            font-size: 0.75rem;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
+        /* ROSTER */
+        .team-list { display: flex; flex-direction: column; gap: 8px; }
+        .member { display: flex; justify-content: space-between; align-items: center; background-color: #0d0d0d; border-left: 3px solid #ff3333; padding: 8px 12px; border-radius: 0 4px 4px 0; }
+        .member-info { display: flex; align-items: center; gap: 10px; }
+        .profile-pic { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid #333; background-color: #111; }
+        .role { color: #888; font-size: 0.8rem; display: block; }
+        .status-badge { font-size: 0.7rem; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
         .status-badge.online { background-color: #00ff66; color: #000; }
         .status-badge.offline { background-color: #222; color: #666; }
 
-        .download-zone {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .download-btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #0d0d0d;
-            border: 1px solid #333;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px 18px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-        .download-btn:hover {
-            background-color: #ffffff;
-            color: #000000;
-        }
-        .file-size {
-            font-size: 0.8rem;
-            opacity: 0.8;
-            border: 1px solid currentColor;
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
+        /* REAL TOOL: IP LOOKUP */
+        .tool-box { background-color: #0d0d0d; border: 1px solid #222; padding: 15px; border-radius: 4px; display: flex; flex-direction: column; gap: 10px; }
+        .tool-row { display: flex; gap: 10px; }
+        .tool-btn { background-color: #00ff66; color: #000; border: none; padding: 0 15px; font-family: 'Consolas', monospace; font-weight: bold; cursor: pointer; border-radius: 4px; }
+        .tool-btn:hover { background-color: #00cc55; }
+        #wrapper-result { background-color: #000; padding: 10px; border-radius: 4px; font-size: 0.85rem; color: #00ff66; border: 1px dashed #111; display: none; line-height: 1.5; white-space: pre-wrap; }
+
+        /* REAL TOOL: LIVE CHAT (IFRAME) */
+        .chat-container { width: 100%; height: 300px; background-color: #000; border: 1px solid #222; border-radius: 4px; overflow: hidden; }
+        .chat-iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
@@ -282,29 +101,27 @@
                 <div class="dot yellow"></div>
                 <div class="dot green"></div>
             </div>
-            <div class="title">NET_PORT_404 // CONSOLE_HUB</div>
+            <div class="title">404 // CYBER CORE INTERFACE</div>
             <div></div>
         </div>
         
         <div class="terminal-body">
             
             <div id="loginScreen">
-                <div class="login-title">> SYSTEM AUTHENTICATION</div>
+                <div class="login-title">> IDENTITY VERIFICATION</div>
                 <div class="input-group">
-                    <label>İstifadəçi Adı (Username):</label>
-                    <input type="text" id="usernameInput" class="terminal-input" placeholder="İstifadəçi adı..." autocomplete="off">
+                    <label>İstifadəçi Adı:</label>
+                    <input type="text" id="usernameInput" class="terminal-input" placeholder="Username..." autocomplete="off">
                 </div>
                 <div class="input-group">
-                    <label>Şifrə (Password):</label>
-                    <input type="password" id="passwordInput" class="terminal-input" placeholder="Şifrə...">
+                    <label>Şifrə:</label>
+                    <input type="password" id="passwordInput" class="terminal-input" placeholder="Password...">
                     <span class="pass-toggle" onclick="togglePassword()">[GÖSTER]</span>
                 </div>
-                
                 <label class="remember-box">
-                    <input type="checkbox" id="rememberMe"> Məni yadda saxla
+                    <input type="checkbox" id="rememberMe"> Avtomatik giriş (Yadda saxla)
                 </label>
-
-                <button class="login-btn" onclick="checkLogin()">LOG IN</button>
+                <button class="login-btn" onclick="checkLogin()">CONNECT TO HUB</button>
                 <div id="errorMsg"></div>
             </div>
 
@@ -312,21 +129,35 @@
                 <div class="brand-zone">
                     <div>
                         <div class="brand">404 Team</div>
-                        <div class="subtitle">// SECURE NETWORK HUB</div>
+                        <div class="subtitle">// CENTRAL OPERATION NETWORK</div>
                     </div>
                     <button class="logout-btn" onclick="logout()">DISCONNECT</button>
                 </div>
                 
                 <div id="welcomeMessage" class="status-box"></div>
                 
-                <div class="section-title">TEAM ROSTER & PROFILES</div>
+                <div class="section-title">🔒 SECURE LIVE CHAT (REALTIME)</div>
+                <div class="chat-container">
+                    <iframe src="https://www5.cbox.ws/box/?boxid=954203&boxtag=m68hda" class="chat-iframe" allow="autoplay"></iframe>
+                </div>
+
+                <div class="section-title">🔍 REAL-TIME NETWORK TARGET LOOKUP (IP SCAN)</div>
+                <div class="tool-box">
+                    <div class="tool-row">
+                        <input type="text" id="targetIpInput" class="terminal-input" style="font-size:0.9rem; padding:8px;" placeholder="Yoxlamaq istədiyiniz IP ünvanını yazın...">
+                        <button class="tool-btn" onclick="runIpLookup()">SCAN TARGET</button>
+                    </div>
+                    <div id="wrapper-result">>> Sorğu gözlənilir...</div>
+                </div>
+
+                <div class="section-title">⚡ ACTIVE NETWORK NODES</div>
                 <div class="team-list">
                     <div class="member" style="border-left-color: #00ff66;">
                         <div class="member-info">
                             <img src="https://i.imgur.com/yXOVD9s.png" class="profile-pic" alt="avatar">
                             <div>
                                 <span>@elsever</span>
-                                <span class="role">(Admin / Creator)</span>
+                                <span class="role">Admin / Creator</span>
                             </div>
                         </div>
                         <span id="status-creator" class="status-badge offline">OFFLINE</span>
@@ -352,14 +183,7 @@
                         <span id="status-specter" class="status-badge offline">OFFLINE</span>
                     </div>
                 </div>
-                
-                <div class="section-title">SECURE FILES</div>
-                <div class="download-zone">
-                    <a href="#" target="_blank" class="download-btn" style="border-color: #00ff66; color: #00ff66;">
-                        <span>📥 PS3 SİSTEM GÜCLƏNDİRMƏSİ v4.93</span>
-                        <span class="file-size">RAR // 195 MB</span>
-                    </a>
-                </div>
+
             </div>
 
         </div>
@@ -372,20 +196,16 @@
             "specter": { pass: "spec404", role: "user" }
         };
 
-        // Oturumu avtomatik yoxlamaq (Remember Me üçün)
         window.onload = function() {
             const savedUser = localStorage.getItem('loggedUser');
             if (savedUser && usersDatabase[savedUser]) {
                 showDashboard(savedUser);
             }
             
-            // Enter düyməsi ilə giriş dəstəyi
-            document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') checkLogin();
-            });
-            document.getElementById('usernameInput').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') checkLogin();
-            });
+            // Enter düyməsi dəstəyi
+            document.getElementById('passwordInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') checkLogin(); });
+            document.getElementById('usernameInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') checkLogin(); });
+            document.getElementById('targetIpInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') runIpLookup(); });
         };
 
         function togglePassword() {
@@ -413,13 +233,11 @@
             }
 
             if (usersDatabase[user] && usersDatabase[user].pass === pass) {
-                if (remember) {
-                    localStorage.setItem('loggedUser', user); // Yadda saxla
-                }
+                if (remember) localStorage.setItem('loggedUser', user);
                 showDashboard(user);
             } else {
                 error.style.display = "block";
-                error.innerText = ">> XƏTA: Şifrə və ya istifadəçi adı səhvdir.";
+                error.innerText = ">> ACCESS DENIED: Şifrə və ya istifadəçi adı səhvdir.";
             }
         }
 
@@ -430,10 +248,10 @@
             
             const welcome = document.getElementById('welcomeMessage');
             welcome.innerText = usersDatabase[user].role === "admin" 
-                ? `> OVERLORD ACCESS: Salam, Baş Admin @${user}!`
-                : `> OPERATOR ACCESS: Salam, @${user}!`;
+                ? `> SYSTEM CORE ONLINE: Xoş gəldiniz, Baş Admin @${user}!`
+                : `> NODE CONNECTED: Salam, @${user}!`;
 
-            // Online vəziyyətləri
+            // Online statusları
             if (user === "elsever") {
                 document.getElementById('status-creator').className = "status-badge online";
                 document.getElementById('status-creator').innerText = "ONLINE";
@@ -450,8 +268,44 @@
             }
         }
 
+        // 🔍 REAL IP SCAN FUNKSİYASI (Sorğu göndərir)
+        function runIpLookup() {
+            const ip = document.getElementById('targetIpInput').value.trim();
+            const resultBox = document.getElementById('wrapper-result');
+            
+            if(ip === "") {
+                alert("Zəhmət olmasa bir IP ünvanı daxil edin!");
+                return;
+            }
+
+            resultBox.style.display = "block";
+            resultBox.innerText = `>> [${new Date().toLocaleTimeString()}] TARGET: ${ip} \n>> Sorğu icra edilir, şəbəkə analiz olunur...`;
+
+            // Pulsuz Real IP Geolocation API istifadəsi
+            fetch(`https://ipapi.co/${ip}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.error) {
+                        resultBox.innerText = `>> XƏTA: IP ünvanı tapılmadı və ya yanlışdır.`;
+                    } else {
+                        resultBox.innerText = `[TARGET RECONNAISSANCE REPORT]
+-------------------------------------------
+🎯 IP ÜNVANI    : ${data.ip || 'Naməlum'}
+🌍 ÖLKƏ / ÖLKƏ KODU: ${data.country_name || 'Naməlum'} (${data.country_code || '??'})
+🏙️ ŞƏHƏR / REGİON  : ${data.city || 'Naməlum'} / ${data.region || 'Naməlum'}
+📡 PROVAYDER (ISP) : ${data.org || 'Naməlum'}
+📌 POÇT INDEKSİ   : ${data.postal || 'Naməlum'}
+📍 KOORDİNATLAR    : Enlem: ${data.latitude}, Boylam: ${data.longitude}
+🛡️ VALYUTA        : ${data.currency_name || 'Naməlum'}`;
+                    }
+                })
+                .catch(err => {
+                    resultBox.innerText = `>> XƏTA: Serverlə əlaqə qurulmadı!`;
+                });
+        }
+
         function logout() {
-            localStorage.removeItem('loggedUser'); // Yaddaşı təmizlə
+            localStorage.removeItem('loggedUser');
             document.getElementById('usernameInput').value = "";
             document.getElementById('passwordInput').value = "";
             document.getElementById('mainContent').style.display = "none";
@@ -461,6 +315,7 @@
 
 </body>
 </html>
+
 
 
 

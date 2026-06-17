@@ -3,323 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 TEAM // CYBER OPERATIONS HUB</title>
+    <title>404 TEAM // UNDERGROUND BOARD</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* 4chan & Retro Textboard Üslubunda Təmiz və Sadə Dizayn */
         body {
-            background-color: #050505;
-            color: #ffffff;
+            background-color: #1d1f21;
+            color: #c5c8c6;
             font-family: 'Consolas', 'Courier New', monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             padding: 20px;
+            line-height: 1.5;
         }
-        .terminal-card {
-            width: 100%;
+        
+        .board-title {
+            color: #cc6666;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .board-subtitle {
+            color: #b5bd68;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #282a2e;
+            margin: 20px 0;
+        }
+
+        /* Naviqasiya Linkləri */
+        .nav-links {
+            margin-bottom: 25px;
+        }
+        
+        .nav-links a {
+            color: #81a2be;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .nav-links a:hover {
+            text-decoration: underline;
+            color: #b2ccd6;
+        }
+
+        /* Post / Mövzu Qutuları */
+        .post {
+            background-color: #282a2e;
+            border: 1px solid #373b41;
+            padding: 15px;
+            margin-bottom: 15px;
             max-width: 700px;
-            background-color: #0a0a0a;
-            border: 1px solid #333;
-            border-radius: 6px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-            overflow: hidden;
         }
-        .terminal-header {
-            background-color: #111;
-            padding: 12px;
-            border-bottom: 1px solid #222;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+
+        .post-header {
+            font-size: 0.85rem;
+            color: #969896;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #373b41;
+            padding-bottom: 5px;
         }
-        .dots { display: flex; gap: 6px; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .dot.red { background-color: #ff5f56; }
-        .dot.yellow { background-color: #ffbd2e; }
-        .dot.green { background-color: #27c93f; }
-        .title { color: #666; font-size: 0.85rem; letter-spacing: 1px; }
-        .terminal-body { padding: 25px; }
+
+        .post-author {
+            color: #b5bd68;
+            font-weight: bold;
+        }
+
+        .post-title {
+            color: #b294bb;
+            font-weight: bold;
+        }
+
+        .post-body {
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            white-space: pre-wrap;
+        }
+
+        /* Yaşıl Quote Mətni (4chan üslubu) */
+        .quote {
+            color: #b5bd68;
+        }
+
+        .file-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #f0c674;
+            text-decoration: none;
+            font-weight: bold;
+        }
         
-        /* LOGIN PANEL */
-        #loginScreen { display: flex; flex-direction: column; gap: 15px; }
-        .login-title { color: #ff3333; font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        .input-group { display: flex; flex-direction: column; gap: 5px; position: relative; }
-        .input-group label { color: #888; font-size: 0.85rem; }
-        .terminal-input { background-color: #000; border: 1px solid #333; color: #00ff66; padding: 12px; font-family: 'Consolas', monospace; font-size: 1rem; border-radius: 4px; outline: none; width: 100%; }
-        .terminal-input:focus { border-color: #00ff66; }
-        .pass-toggle { position: absolute; right: 12px; top: 35px; color: #666; cursor: pointer; font-size: 0.85rem; user-select: none; }
-        .pass-toggle:hover { color: #00ff66; }
-        .remember-box { display: flex; align-items: center; gap: 8px; color: #888; font-size: 0.85rem; cursor: pointer; }
-        .remember-box input { accent-color: #ff3333; }
-        .login-btn { background-color: #ff3333; color: #fff; border: none; padding: 12px; font-family: 'Consolas', monospace; font-weight: bold; cursor: pointer; border-radius: 4px; font-size: 1rem; }
-        .login-btn:hover { background-color: #cc0000; }
-        #errorMsg { color: #ff3333; font-size: 0.95rem; font-weight: bold; display: none; }
+        .file-link:hover {
+            text-decoration: underline;
+        }
 
-        /* MAIN DASHBOARD */
-        #mainContent { display: none; }
-        .brand-zone { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
-        .brand { font-size: 2rem; font-weight: bold; color: #ffffff; letter-spacing: 3px; text-transform: uppercase; }
-        .subtitle { color: #ff3333; font-size: 0.9rem; font-weight: bold; }
-        .logout-btn { background-color: transparent; border: 1px solid #ff3333; color: #ff3333; padding: 6px 12px; font-family: 'Consolas', monospace; cursor: pointer; border-radius: 4px; font-weight: bold; }
-        .logout-btn:hover { background-color: #ff3333; color: #fff; }
-        .section-title { color: #555; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; margin-bottom: 12px; border-bottom: 1px dashed #222; padding-bottom: 4px; }
-        .status-box { background-color: #091a0c; border: 1px solid #00ff66; color: #00ff66; padding: 10px 15px; border-radius: 4px; font-size: 0.9rem; margin-bottom: 15px; font-weight: bold; }
-        
-        /* ROSTER */
-        .team-list { display: flex; flex-direction: column; gap: 8px; }
-        .member { display: flex; justify-content: space-between; align-items: center; background-color: #0d0d0d; border-left: 3px solid #ff3333; padding: 8px 12px; border-radius: 0 4px 4px 0; }
-        .member-info { display: flex; align-items: center; gap: 10px; }
-        .profile-pic { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid #333; background-color: #111; }
-        .role { color: #888; font-size: 0.8rem; display: block; }
-        .status-badge { font-size: 0.7rem; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
-        .status-badge.online { background-color: #00ff66; color: #000; }
-        .status-badge.offline { background-color: #222; color: #666; }
-
-        /* REAL TOOL: IP LOOKUP */
-        .tool-box { background-color: #0d0d0d; border: 1px solid #222; padding: 15px; border-radius: 4px; display: flex; flex-direction: column; gap: 10px; }
-        .tool-row { display: flex; gap: 10px; }
-        .tool-btn { background-color: #00ff66; color: #000; border: none; padding: 0 15px; font-family: 'Consolas', monospace; font-weight: bold; cursor: pointer; border-radius: 4px; }
-        .tool-btn:hover { background-color: #00cc55; }
-        #wrapper-result { background-color: #000; padding: 10px; border-radius: 4px; font-size: 0.85rem; color: #00ff66; border: 1px dashed #111; display: none; line-height: 1.5; white-space: pre-wrap; }
-
-        /* REAL TOOL: LIVE CHAT (IFRAME) */
-        .chat-container { width: 100%; height: 300px; background-color: #000; border: 1px solid #222; border-radius: 4px; overflow: hidden; }
-        .chat-iframe { width: 100%; height: 100%; border: none; }
+        .footer {
+            margin-top: 5px;
+            font-size: 0.8rem;
+            color: #5f89ac;
+        }
     </style>
 </head>
 <body>
 
-    <div class="terminal-card">
-        <div class="terminal-header">
-            <div class="dots">
-                <div class="dot red" onclick="logout()"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
-            </div>
-            <div class="title">404 // CYBER CORE INTERFACE</div>
-            <div></div>
-        </div>
-        
-        <div class="terminal-body">
-            
-            <div id="loginScreen">
-                <div class="login-title">> IDENTITY VERIFICATION</div>
-                <div class="input-group">
-                    <label>İstifadəçi Adı:</label>
-                    <input type="text" id="usernameInput" class="terminal-input" placeholder="Username..." autocomplete="off">
-                </div>
-                <div class="input-group">
-                    <label>Şifrə:</label>
-                    <input type="password" id="passwordInput" class="terminal-input" placeholder="Password...">
-                    <span class="pass-toggle" onclick="togglePassword()">[GÖSTER]</span>
-                </div>
-                <label class="remember-box">
-                    <input type="checkbox" id="rememberMe"> Avtomatik giriş (Yadda saxla)
-                </label>
-                <button class="login-btn" onclick="checkLogin()">CONNECT TO HUB</button>
-                <div id="errorMsg"></div>
-            </div>
+    <div class="board-title">/404/ - TEAM UNDERGROUND HUB</div>
+    <div class="board-subtitle">Anonymous Textboard & Resource Sharing</div>
 
-            <div id="mainContent">
-                <div class="brand-zone">
-                    <div>
-                        <div class="brand">404 Team</div>
-                        <div class="subtitle">// CENTRAL OPERATION NETWORK</div>
-                    </div>
-                    <button class="logout-btn" onclick="logout()">DISCONNECT</button>
-                </div>
-                
-                <div id="welcomeMessage" class="status-box"></div>
-                
-                <div class="section-title">🔒 SECURE LIVE CHAT (REALTIME)</div>
-                <div class="chat-container">
-                    <iframe src="https://www5.cbox.ws/box/?boxid=954203&boxtag=m68hda" class="chat-iframe" allow="autoplay"></iframe>
-                </div>
-
-                <div class="section-title">🔍 REAL-TIME NETWORK TARGET LOOKUP (IP SCAN)</div>
-                <div class="tool-box">
-                    <div class="tool-row">
-                        <input type="text" id="targetIpInput" class="terminal-input" style="font-size:0.9rem; padding:8px;" placeholder="Yoxlamaq istədiyiniz IP ünvanını yazın...">
-                        <button class="tool-btn" onclick="runIpLookup()">SCAN TARGET</button>
-                    </div>
-                    <div id="wrapper-result">>> Sorğu gözlənilir...</div>
-                </div>
-
-                <div class="section-title">⚡ ACTIVE NETWORK NODES</div>
-                <div class="team-list">
-                    <div class="member" style="border-left-color: #00ff66;">
-                        <div class="member-info">
-                            <img src="https://i.imgur.com/yXOVD9s.png" class="profile-pic" alt="avatar">
-                            <div>
-                                <span>@elsever</span>
-                                <span class="role">Admin / Creator</span>
-                            </div>
-                        </div>
-                        <span id="status-creator" class="status-badge offline">OFFLINE</span>
-                    </div>
-                    <div class="member">
-                        <div class="member-info">
-                            <img src="https://i.imgur.com/yXOVD9s.png" class="profile-pic" alt="avatar">
-                            <div>
-                                <span>@alp</span>
-                                <span class="role">Lider</span>
-                            </div>
-                        </div>
-                        <span id="status-alp" class="status-badge offline">OFFLINE</span>
-                    </div>
-                    <div class="member">
-                        <div class="member-info">
-                            <img src="https://i.imgur.com/yXOVD9s.png" class="profile-pic" alt="avatar">
-                            <div>
-                                <span>@specter</span>
-                                <span class="role">Lider</span>
-                            </div>
-                        </div>
-                        <span id="status-specter" class="status-badge offline">OFFLINE</span>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
+    <div class="nav-links">
+        <a href="#">[ TELEGRAM BOT ]</a>
+        <a href="#">[ GAME MODS ]</a>
+        <a href="#">[ PROJECTS ]</a>
     </div>
 
-    <script>
-        const usersDatabase = {
-            "elsever": { pass: "404team", role: "admin" },
-            "alp": { pass: "alp123", role: "user" },
-            "specter": { pass: "spec404", role: "user" }
-        };
+    <hr>
 
-        window.onload = function() {
-            const savedUser = localStorage.getItem('loggedUser');
-            if (savedUser && usersDatabase[savedUser]) {
-                showDashboard(savedUser);
-            }
+    <div class="post">
+        <div class="post-header">
+            Anons No.001 // <span class="post-author">Anonymous</span> // Reytinq: Admin // Tarix: 2026
+        </div>
+        <div class="post-title">HFW 4.93 HEN KIRMA DOSYASI</div>
+        <div class="post-body">Herkesin bildiği gibi HEN kırma yönteminin 4.93 güncelleme dosyasıdır. Burada sadece bilen ve aktif kullananlar için sadece indirme dosyası verilmiştir. 
+
+Bu yöntemle kırmak isteyen müşterilerimiz üçün aşağıdan faylı yükləyə bilər.
             
-            // Enter düyməsi dəstəyi
-            document.getElementById('passwordInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') checkLogin(); });
-            document.getElementById('usernameInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') checkLogin(); });
-            document.getElementById('targetIpInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') runIpLookup(); });
-        };
+<span class="quote">> Status: Aktiv</span>
+<a href="#" class="file-link">📥 [ İndir: HFW_4.93_Update.rar ]</a></div>
+    </div>
 
-        function togglePassword() {
-            const passInput = document.getElementById('passwordInput');
-            const toggleText = document.querySelector('.pass-toggle');
-            if (passInput.type === 'password') {
-                passInput.type = 'text';
-                toggleText.innerText = '[GİZLET]';
-            } else {
-                passInput.type = 'password';
-                toggleText.innerText = '[GÖSTER]';
-            }
-        }
+    <div class="post">
+        <div class="post-header">
+            Anons No.002 // <span class="post-author">404_Team</span> // Reytinq: Lider
+        </div>
+        <div class="post-title">SYSTEM RECON</div>
+        <div class="post-body"><span class="quote">> Platforma tamamilə sadələşdirildi.</span>
+Bütün skriptlər və mürəkkəb verilənlər bazası ləğv edildi. Minimalist rejim aktivdir.</div>
+    </div>
 
-        function checkLogin() {
-            const user = document.getElementById('usernameInput').value.toLowerCase().trim();
-            const pass = document.getElementById('passwordInput').value;
-            const error = document.getElementById('errorMsg');
-            const remember = document.getElementById('rememberMe').checked;
+    <hr>
 
-            if (user === "" || pass === "") {
-                error.style.display = "block";
-                error.innerText = ">> XƏTA: Boş buraxıla bilməz!";
-                return;
-            }
-
-            if (usersDatabase[user] && usersDatabase[user].pass === pass) {
-                if (remember) localStorage.setItem('loggedUser', user);
-                showDashboard(user);
-            } else {
-                error.style.display = "block";
-                error.innerText = ">> ACCESS DENIED: Şifrə və ya istifadəçi adı səhvdir.";
-            }
-        }
-
-        function showDashboard(user) {
-            document.getElementById('errorMsg').style.display = "none";
-            document.getElementById('loginScreen').style.display = "none";
-            document.getElementById('mainContent').style.display = "block";
-            
-            const welcome = document.getElementById('welcomeMessage');
-            welcome.innerText = usersDatabase[user].role === "admin" 
-                ? `> SYSTEM CORE ONLINE: Xoş gəldiniz, Baş Admin @${user}!`
-                : `> NODE CONNECTED: Salam, @${user}!`;
-
-            // Online statusları
-            if (user === "elsever") {
-                document.getElementById('status-creator').className = "status-badge online";
-                document.getElementById('status-creator').innerText = "ONLINE";
-                document.getElementById('status-alp').className = "status-badge online";
-                document.getElementById('status-alp').innerText = "ONLINE";
-            } else if (user === "alp") {
-                document.getElementById('status-alp').className = "status-badge online";
-                document.getElementById('status-alp').innerText = "ONLINE";
-                document.getElementById('status-creator').className = "status-badge online";
-                document.getElementById('status-creator').innerText = "ONLINE";
-            } else if (user === "specter") {
-                document.getElementById('status-specter').className = "status-badge online";
-                document.getElementById('status-specter').innerText = "ONLINE";
-            }
-        }
-
-        // 🔍 REAL IP SCAN FUNKSİYASI (Sorğu göndərir)
-        function runIpLookup() {
-            const ip = document.getElementById('targetIpInput').value.trim();
-            const resultBox = document.getElementById('wrapper-result');
-            
-            if(ip === "") {
-                alert("Zəhmət olmasa bir IP ünvanı daxil edin!");
-                return;
-            }
-
-            resultBox.style.display = "block";
-            resultBox.innerText = `>> [${new Date().toLocaleTimeString()}] TARGET: ${ip} \n>> Sorğu icra edilir, şəbəkə analiz olunur...`;
-
-            // Pulsuz Real IP Geolocation API istifadəsi
-            fetch(`https://ipapi.co/${ip}/json/`)
-                .then(response => response.json())
-                .then(data => {
-                    if(data.error) {
-                        resultBox.innerText = `>> XƏTA: IP ünvanı tapılmadı və ya yanlışdır.`;
-                    } else {
-                        resultBox.innerText = `[TARGET RECONNAISSANCE REPORT]
--------------------------------------------
-🎯 IP ÜNVANI    : ${data.ip || 'Naməlum'}
-🌍 ÖLKƏ / ÖLKƏ KODU: ${data.country_name || 'Naməlum'} (${data.country_code || '??'})
-🏙️ ŞƏHƏR / REGİON  : ${data.city || 'Naməlum'} / ${data.region || 'Naməlum'}
-📡 PROVAYDER (ISP) : ${data.org || 'Naməlum'}
-📌 POÇT INDEKSİ   : ${data.postal || 'Naməlum'}
-📍 KOORDİNATLAR    : Enlem: ${data.latitude}, Boylam: ${data.longitude}
-🛡️ VALYUTA        : ${data.currency_name || 'Naməlum'}`;
-                    }
-                })
-                .catch(err => {
-                    resultBox.innerText = `>> XƏTA: Serverlə əlaqə qurulmadı!`;
-                });
-        }
-
-        function logout() {
-            localStorage.removeItem('loggedUser');
-            document.getElementById('usernameInput').value = "";
-            document.getElementById('passwordInput').value = "";
-            document.getElementById('mainContent').style.display = "none";
-            document.getElementById('loginScreen').style.display = "flex";
-        }
-    </script>
+    <div class="footer">
+        © 2026 404 Team. All rights reserved.
+    </div>
 
 </body>
 </html>
-
-
-
-
-
-
-
-

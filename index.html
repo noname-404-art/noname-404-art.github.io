@@ -1,16 +1,14 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 🔑 GOOGLE SITE VERIFICATION -->
     <meta name="google-site-verification" content="wVmYd3Nk0lRKhNOZlIdppxvKvHvz4PV1vgp2lv1nBiA" />
     
-    <!-- 🔍 GOOGLE SEO -->
     <title>LABİRENT CLUB // PS və Kompüter Proqramları Yükləmə Mərkəzi</title>
-    <meta name="description" content="LABİRENT CLUB rəsmi proqram arxivi. Ən son kompüter proqramları, sistem alətləri, PS3 HFW 4.93 və multiMAN fayllarını təhlükəsiz yükləyin.">
-    <meta name="keywords" content="labirent club, hfw 4.93 indir, multiman indir, ps3 hen kırma, full program indir, kompüter proqramları">
+    <meta name="description" content="LABİRENT CLUB rəsmi proqram arxivi. Ən son kompüter proqramları, sistem alətləri, PS3 HFW 4.93, multiMAN, webMAN və IRISMAN fayllarını təhlükəsiz yükləyin.">
+    <meta name="keywords" content="labirent club, hfw 4.93, multiman indir, webman mod, irisman indir, winrar, utorrent, kompüter proqramları">
     <meta name="robots" content="index, follow">
     
     <style>
@@ -44,29 +42,26 @@
         }
         header p { color: #d32f2f; font-size: 1rem; font-weight: bold; margin-top: 10px; letter-spacing: 2px; }
 
-        /* 📢 REKLAM BİLDİRİŞ PLAKATI */
-        .reklam-banner {
+        /* 📋 KATEQORİYA BAŞLIQLARI */
+        .section-title {
             width: 100%;
             max-width: 600px;
-            background-color: #fff8e1;
-            border: 2px dashed #ffb300;
-            padding: 15px;
-            text-align: center;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            font-weight: 600;
-            color: #ff8f00;
-            font-size: 1.1rem;
-            line-height: 1.5;
+            text-align: left;
+            font-size: 1.6rem;
+            color: #1a1a1a;
+            border-left: 5px solid #d32f2f;
+            padding-left: 15px;
+            margin: 40px 0 20px 0;
+            font-weight: 800;
+            text-transform: uppercase;
         }
-        .reklam-banner a { color: #d32f2f; font-weight: bold; text-decoration: underline; }
 
         .content-wrapper {
             width: 100%;
             max-width: 600px;
             display: flex;
             flex-direction: column;
-            gap: 60px;
+            gap: 50px;
             padding-bottom: 120px;
         }
 
@@ -80,30 +75,37 @@
         }
 
         .post-image {
-            width: 180px;
+            width: 150px;
             height: auto;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             object-fit: contain;
         }
 
+        .post-title-inner {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
         .post-text {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             line-height: 1.6;
-            color: #2c3e50;
+            color: #4a5568;
             font-weight: 500;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             padding: 0 10px;
             white-space: pre-line;
         }
         
         .password-alert {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #d32f2f;
             font-weight: bold;
-            margin-top: -15px;
-            margin-bottom: 25px;
+            margin-top: -10px;
+            margin-bottom: 20px;
             background-color: #ffebee;
-            padding: 8px 20px;
+            padding: 6px 15px;
             border-radius: 5px;
             border: 1px dashed #d32f2f;
         }
@@ -114,65 +116,30 @@
             color: #ffffff;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
-            padding: 14px 45px;
+            font-size: 1rem;
+            padding: 12px 40px;
             border-radius: 35px;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.25);
             transition: 0.3s;
         }
-        .download-btn:hover { background-color: #000000; transform: scale(1.05); }
+        .download-btn:hover { background-color: #000000; transform: scale(1.03); }
 
-        .divider { width: 100%; border-top: 1px solid #f0f0f0; margin-top: 60px; }
+        .divider { width: 100%; border-top: 1px solid #f0f0f0; margin-top: 50px; }
 
-        /* 💬 DIRECT WHATSAPP MESAJ QUTUSU (Sağ Künc, Aşağı) */
+        /* 💬 WHATSAPP MESAJ QUTUSU */
         .chat-box {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 300px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            border: 2px solid #1a1a1a;
-            display: none;
-            flex-direction: column;
-            z-index: 2000;
-            overflow: hidden;
+            position: fixed; bottom: 25px; right: 25px; width: 300px; background: #ffffff;
+            border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            border: 2px solid #1a1a1a; display: none; flex-direction: column; z-index: 2000; overflow: hidden;
         }
-        .chat-header {
-            background: #1a1a1a;
-            color: white;
-            padding: 12px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .chat-header { background: #1a1a1a; color: white; padding: 12px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
         .chat-header span { cursor: pointer; font-size: 1.2rem; }
         .chat-body { padding: 15px; display: flex; flex-direction: column; gap: 10px; }
-        .chat-body input, .chat-body textarea {
-            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; resize: none;
-        }
-        .chat-body button {
-            background: #25d366; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;
-        }
+        .chat-body input, .chat-body textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; resize: none; }
+        .chat-body button { background: #25d366; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; }
         .chat-body button:hover { background: #1ebd58; }
-
-        /* 💬 ÇAT DÜYMƏSİ */
-        .chat-toggle {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #1a1a1a;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 1999;
-        }
+        .chat-toggle { position: fixed; bottom: 25px; right: 25px; background: #1a1a1a; color: white; padding: 15px 25px; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1999; }
     </style>
 </head>
 <body>
@@ -182,41 +149,78 @@
         <p>PS & PC DOWNLOAD CENTER</p>
     </header>
 
-    <!-- 📢 REKLAM BİLDİRİŞİ -->
-    <div class="reklam-banner">
-        🚀 Saytda Reklam Yerləşdirmək və ya Xidmətlərdən Yararlanmaq Üçün <a href="https://wa.me/6282125232356" target="_blank">Adminlə Əlaqə Saxlayın</a> və ya Aşağıdakı Mesaj Qutusundan Birbaşa Yazın.
-    </div>
-
     <div class="content-wrapper">
+
+        <div class="section-title">🕹️ PlayStation 3 Alətləri</div>
         
-        <!-- 1-Cİ BLOK: PS3 GÜNCƏLLƏMƏSİ -->
         <div class="post-card">
-            <img src="images/ps3.png" alt="PS3 HFW 4.93" class="post-image">
-            <div class="post-text">Herkesin bildiği gibi HEN kırma yönteminin 4.93 güncelleme dosyasıdır. Burada sadece bilen ve aktif kullananlar için sadece indirme dosyası verilmiştir.</div>
-            <a href="https://disk.yandex.com.tr/d/VFJbWXGKt-5gDA" class="download-btn" target="_blank">DOSYAYI İNDİR</a>
+            <img src="images/ps3.png" alt="PS3" class="post-image" onerror="this.style.display='none'">
+            <div class="post-title-inner">PS3 HFW 4.93 Güncelleme Dosyası</div>
+            <div class="post-text">PS3 konsolları üçün HEN kırma metodunun rəsmi 4.93 sistem yeniləmə faylıdır. Aktiv istifadəçilər və ustalar üçün birbaşa yükləmə linki təmin olunub.</div>
+            <a href="https://disk.yandex.com.tr/d/VFJbWXGKt-5gDA" class="download-btn" target="_blank">YÜKLƏ (DOWNLOAD)</a>
             <div class="divider"></div>
         </div>
 
-        <!-- 2-Cİ BLOK: MULTİMAN -->
         <div class="post-card">
-            <img src="images/multiman.png" alt="multiMAN PS3" class="post-image">
-            <div class="post-text">PS3 konsolları için en popüler ve stabil dosya yöneticisi oyun yükleme aracı olan multiMAN uygulamasıdır. Oyunlarınızı harddiskten rahatça çalıştırabilirsiniz.</div>
+            <img src="images/multiman.png" alt="multiMAN" class="post-image" onerror="this.style.display='none'">
+            <div class="post-title-inner">multiMAN v04.85.01 Base</div>
+            <div class="post-text">PS3 oyunlarını daxili və xarici yaddaşdan (harddisk) problemsiz oxutmaq və faylları idarə etmək üçün ən stabil və məşhur menecer proqramı.</div>
             <div class="password-alert">Dosya Şifresi: ps3turkiye</div>
-            <a href="https://disk.yandex.com/d/vnRh_ShBxrcmCw" class="download-btn" target="_blank">DOSYAYI İNDİR</a>
+            <a href="https://disk.yandex.com/d/vnRh_ShBxrcmCw" class="download-btn" target="_blank">YÜKLƏ (DOWNLOAD)</a>
             <div class="divider"></div>
         </div>
 
-        <!-- 3-Cİ BLOK: RUFUS -->
         <div class="post-card">
-            <img src="images/rufus.png" alt="Rufus USB" class="post-image">
-            <div class="post-text">Rufus - Kompüterlərə format atmaq üçün USB yaddaş qurğularını (Fleş kartları) çox rahat və sürətli şəkildə yüklənə bilən (Bootable) vəziyyətə gətirən pulsuz proqramdır.</div>
-            <a href="https://rufus.ie/downloads/" class="download-btn" target="_blank">DOSYAYI İNDİR</a>
+            <img src="images/webman.png" alt="webMAN" class="post-image" onerror="this.style.display='none'">
+            <div class="post-title-inner">webMAN MOD Installer</div>
+            <div class="post-text">PS3 konsolunuzun fan (soyutma) sürətini tənzimləyən və oyunları birbaşa ana ekrandan (XMB) sürətlə başlatmağa imkan verən əvəzolunmaz plugin aləti.</div>
+            <a href="https://github.com/aldostools/webman-mod/releases" class="download-btn" target="_blank">YÜKLƏ (DOWNLOAD)</a>
             <div class="divider"></div>
+        </div>
+
+        <div class="post-card">
+            <img src="images/irisman.png" alt="IRISMAN" class="post-image" onerror="this.style.display='none'">
+            <div class="post-title-inner">IRISMAN File Manager</div>
+            <div class="post-text">multiMAN proqramına ən yaxşı alternativ. Xüsusilə böyük həcmli NTFS formatlı fleş kartları və xarici kənar diskləri çox sürətli oxuyan xüsusi menecer.</div>
+            <a href="https://github.com/aldostools/irisman/releases" class="download-btn" target="_blank">YÜKLƏ (DOWNLOAD)</a>
+        </div>
+
+
+        <div class="section-title">💻 Kompüter (PC) Proqramları</div>
+
+        <div class="post-card">
+            <img src="images/rufus.png" alt="Rufus" class="post-image" onerror="this.style.display='none'">
+            <div class="post-title-inner">Rufus USB Boot Maker</div>
+            <div class="post-text">Kompüterlərə format atmaq üçün USB fleş kartları çox rahat və sürətli şəkildə yüklənə bilən (Bootable Windows) vəziyyətə gətirən pulsuz proqramdır.</div>
+            <a href="https://rufus.ie/downloads/" class="download-btn" target="_blank">YÜKLƏ (DOWNLOAD)</a>
+            <div class="divider"></div>
+        </div>
+
+        <div class="post-card">
+            <img src="images/winrar.png" alt="WinRAR" class="post-image" onerror="this.style.display='none'">
+            <div class="post-title-inner">WinRAR (Arxiv Proqramı)</div>
+            <div class="post-text">İnternetdən yüklənən sıxılmış `.rar` və `.zip` formatlı faylları açmaq və ya faylları arxivləşdirmək üçün hər bir kompüterə mütləq lazım olan proqram.</div>
+            <a href="https://www.win-rar.com/download.html" class="download-btn" target="_blank">YÜKLƏ (DOWNLOAD)</a>
+            <div class="divider"></div>
+        </div>
+
+        <div class="post-card">
+            <img src="images/utorrent.png" alt="uTorrent" class="post-image" onerror="this.style.display='none'">
+            <div class="post-title-inner">µTorrent Web / Classic</div>
+            <div class="post-text">Böyük həcmli kompüter oyunlarını, filmləri və faylları internetdən yüksək sürətlə və problemsiz yükləmək üçün ən populyar Torrent müştərisi.</div>
+            <a href="https://www.utorrent.com/" class="download-btn" target="_blank">YÜKLƏ (DOWNLOAD)</a>
+            <div class="divider"></div>
+        </div>
+
+        <div class="post-card">
+            <img src="images/operagx.png" alt="Opera GX" class="post-image" onerror="this.style.display='none'">
+            <div class="post-title-inner">Opera GX (Gamer Browser)</div>
+            <div class="post-text">Xüsusi olaraq oyun həvəskarları üçün yığılmış, kompüterin RAM və Prosessor (CPU) limitini tənzimləyə bilən, daxili pulsuz VPN-i olan sürətli internet brauzeri.</div>
+            <a href="https://www.opera.com/gx" class="download-btn" target="_blank">YÜKLƏ (DOWNLOAD)</a>
         </div>
 
     </div>
 
-    <!-- 💬 WHATSAPP CANLI MESAJ SİSTEMİ -->
     <div class="chat-toggle" id="chatToggle" onclick="toggleChat()">💬 Adminə Yaz</div>
 
     <div class="chat-box" id="chatBox">
@@ -226,12 +230,11 @@
         </div>
         <div class="chat-body">
             <input type="text" id="senderName" placeholder="Adınız">
-            <textarea id="senderMsg" rows="3" placeholder="Mesajınız və ya Reklam təklifiniz..."></textarea>
+            <textarea id="senderMsg" rows="3" placeholder="Mesajınız..."></textarea>
             <button onclick="sendToWhatsApp()">WhatsApp ilə Göndər</button>
         </div>
     </div>
 
-    <!-- 📜 LOGIC SCRIPT -->
     <script>
         function toggleChat() {
             var box = document.getElementById('chatBox');
@@ -254,19 +257,11 @@
                 return;
             }
 
-            // 🟢 ÖZ WHATSAPP NÖMRƏNİ BURA YAZ (Məsələn: 994501234567 formatında, startsız, hərfsiz)
-            var myNumber = "6282125232356"; 
-            
-            // Mesaj formatı
+            var myNumber = "6282125232356"; /* 🟢 BURA ÖZ WHATSAPP NÖMRƏNİ YAZ (məs: 994501234567) */
             var fullText = "Salam Admin, mən Labirent Club saytından yazıram.\n\n👤 *Adım:* " + name + "\n📝 *Mesajım:* " + msg;
-
-            // WhatsApp yönləndirmə linki
             var wpUrl = "https://wa.me/" + myNumber + "?text=" + encodeURIComponent(fullText);
-
-            // Yeni pəncərədə açırıq
             window.open(wpUrl, '_blank');
-            
-            // Xanaları təmizləyirik
+
             document.getElementById('senderName').value = "";
             document.getElementById('senderMsg').value = "";
             toggleChat();

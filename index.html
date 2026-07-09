@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- 🔑 GOOGLE SITE VERIFICATION -->
     <meta name="google-site-verification" content="wVmYd3Nk0lRKhNOZlIdppxvKvHvz4PV1vgp2lv1nBiA" />
     
+    <!-- 🔍 GOOGLE SEO -->
     <title>LABİRENT CLUB // PS və Kompüter Proqramları Yükləmə Mərkəzi</title>
     <meta name="description" content="LABİRENT CLUB rəsmi proqram arxivi. Ən son kompüter proqramları, sistem alətləri, PS3 HFW 4.93 və multiMAN fayllarını təhlükəsiz yükləyin.">
     <meta name="keywords" content="labirent club, hfw 4.93 indir, multiman indir, ps3 hen kırma, full program indir, kompüter proqramları">
@@ -42,13 +44,30 @@
         }
         header p { color: #d32f2f; font-size: 1rem; font-weight: bold; margin-top: 10px; letter-spacing: 2px; }
 
+        /* 📢 REKLAM BİLDİRİŞ PLAKATI */
+        .reklam-banner {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff8e1;
+            border: 2px dashed #ffb300;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            font-weight: 600;
+            color: #ff8f00;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .reklam-banner a { color: #d32f2f; font-weight: bold; text-decoration: underline; }
+
         .content-wrapper {
             width: 100%;
             max-width: 600px;
             display: flex;
             flex-direction: column;
             gap: 60px;
-            padding-bottom: 100px;
+            padding-bottom: 120px;
         }
 
         /* 📦 PROQRAM KARTLARI */
@@ -61,14 +80,14 @@
         }
 
         .post-image {
-            width: 200px;
+            width: 180px;
             height: auto;
             margin-bottom: 25px;
             object-fit: contain;
         }
 
         .post-text {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             line-height: 1.6;
             color: #2c3e50;
             font-weight: 500;
@@ -96,142 +115,64 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
-            padding: 16px 50px;
+            padding: 14px 45px;
             border-radius: 35px;
             text-transform: uppercase;
             box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
             transition: 0.3s;
         }
-        .download-btn:hover {
-            background-color: #000000;
-            transform: scale(1.05);
-        }
+        .download-btn:hover { background-color: #000000; transform: scale(1.05); }
 
-        .divider {
-            width: 100%;
-            border-top: 1px solid #f0f0f0;
-            margin-top: 60px;
-        }
+        .divider { width: 100%; border-top: 1px solid #f0f0f0; margin-top: 60px; }
 
-        /* 🟢 SABİT WHATSAPP DÜYMƏSİ */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            width: 65px;
-            height: 65px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-        .whatsapp-float svg { width: 35px; height: 35px; fill: white; }
-
-        /* 🟠 YUXARI QALXMA */
-        .scroll-top {
+        /* 💬 DIRECT WHATSAPP MESAJ QUTUSU (Sağ Künc, Aşağı) */
+        .chat-box {
             position: fixed;
             bottom: 25px;
             right: 25px;
-            width: 55px;
-            height: 55px;
-            background-color: #f57c00;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            font-size: 1.8rem;
-            z-index: 1000;
-        }
-
-        /* 🛠️ GİZLİ ADMİN POPUP VƏ PANEL DİZAYNI */
-        .admin-link {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.8rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        .admin-link:hover { color: #888; }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
+            width: 300px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            border: 2px solid #1a1a1a;
             display: none;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
             z-index: 2000;
+            overflow: hidden;
         }
-
-        .modal-box {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            position: relative;
-        }
-
-        .modal-box h3 { margin-bottom: 20px; color: #1a1a1a; font-size: 1.5rem; }
-        .modal-box input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
-            outline: none;
-        }
-        .modal-box input:focus { border-color: #d32f2f; }
-        
-        .modal-btn {
-            background: #d32f2f;
+        .chat-header {
+            background: #1a1a1a;
             color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
+            padding: 12px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-header span { cursor: pointer; font-size: 1.2rem; }
+        .chat-body { padding: 15px; display: flex; flex-direction: column; gap: 10px; }
+        .chat-body input, .chat-body textarea {
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; resize: none;
+        }
+        .chat-body button {
+            background: #25d366; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;
+        }
+        .chat-body button:hover { background: #1ebd58; }
+
+        /* 💬 ÇAT DÜYMƏSİ */
+        .chat-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #1a1a1a;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
             font-weight: bold;
             cursor: pointer;
-            width: 100%;
-            margin-top: 15px;
-            font-size: 1rem;
-            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1999;
         }
-        .modal-btn:hover { background: #b71c1c; }
-        
-        .close-modal {
-            position: absolute;
-            top: 10px; right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #999;
-        }
-
-        /* 👑 ADMİN REKLAM VƏ XİDMƏT PANELİ */
-        .admin-panel {
-            display: none;
-            width: 100%;
-            background: #f9f9f9;
-            border: 2px solid #1a1a1a;
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 20px;
-            text-align: left;
-        }
-        .admin-panel h2 { color: #d32f2f; margin-bottom: 15px; text-align: center; border-bottom: 2px solid #1a1a1a; padding-bottom: 10px; }
-        .admin-panel ul { list-style: none; margin-top: 10px; }
-        .admin-panel li { padding: 8px 0; border-bottom: 1px solid #ddd; font-size: 1.1rem; color: #333; }
-        .admin-panel li strong { color: #000; }
     </style>
 </head>
 <body>
@@ -241,83 +182,96 @@
         <p>PS & PC DOWNLOAD CENTER</p>
     </header>
 
+    <!-- 📢 REKLAM BİLDİRİŞİ -->
+    <div class="reklam-banner">
+        🚀 Saytda Reklam Yerləşdirmək və ya Xidmətlərdən Yararlanmaq Üçün <a href="https://wa.me/6282125232356" target="_blank">Adminlə Əlaqə Saxlayın</a> və ya Aşağıdakı Mesaj Qutusundan Birbaşa Yazın.
+    </div>
+
     <div class="content-wrapper">
         
+        <!-- 1-Cİ BLOK: PS3 GÜNCƏLLƏMƏSİ -->
         <div class="post-card">
             <img src="images/ps3.png" alt="PS3 HFW 4.93" class="post-image">
-            <div class="post-text">Herkesin bildiği gibi HEN kırma yönteminin 4.93 güncelleme dosyasıdır. Burada sadece bilen ve aktif kullananlar için sadece indirme dosyası verilmiştir. Bu yöntemle kırmak isteyen müşterilerimiz üçün sitemizde çok detaylı anlatımdan faydalanabilir.</div>
+            <div class="post-text">Herkesin bildiği gibi HEN kırma yönteminin 4.93 güncelleme dosyasıdır. Burada sadece bilen ve aktif kullananlar için sadece indirme dosyası verilmiştir.</div>
             <a href="https://disk.yandex.com.tr/d/VFJbWXGKt-5gDA" class="download-btn" target="_blank">DOSYAYI İNDİR</a>
             <div class="divider"></div>
         </div>
 
+        <!-- 2-Cİ BLOK: MULTİMAN -->
         <div class="post-card">
             <img src="images/multiman.png" alt="multiMAN PS3" class="post-image">
-            <div class="post-text">PS3 konsolları için en popüler ve stabil dosya yöneticisi oyun yükleme aracı olan multiMAN uygulamasıdır. Bu menü sayesinde oyunlarınızı harddiskten rahatça çalıştırabilirsiniz.</div>
+            <div class="post-text">PS3 konsolları için en popüler ve stabil dosya yöneticisi oyun yükleme aracı olan multiMAN uygulamasıdır. Oyunlarınızı harddiskten rahatça çalıştırabilirsiniz.</div>
             <div class="password-alert">Dosya Şifresi: ps3turkiye</div>
             <a href="https://disk.yandex.com/d/vnRh_ShBxrcmCw" class="download-btn" target="_blank">DOSYAYI İNDİR</a>
             <div class="divider"></div>
         </div>
 
-        <div id="adminPanel" class="admin-panel">
-            <h2>LABİRENT CLUB // ADMİN PANEL</h2>
-            <p style="text-align:center; font-weight:bold; color:#444;">Xidmətlər və Reklam İdarəetmə Bölməsi</p>
-            <ul>
-                <li>• <strong>Kompüter Xidmətləri:</strong> Professional Format (Win 10/11 Pro), daxili təmizləmə və termopasta yenilənməsi.</li>
-                <li>• <strong>PlayStation Xidmətləri:</strong> PS3/PS4 modifikasiya (HEN/GoldHEN), daxili oyun yüklənməsi, personal modlar.</li>
-                <li>• <strong>Reklam Şərtləri:</strong> Sayt daxilində reklam yerləşdirmək və əməkdaşlıq üçün birbaşa adminlə əlaqə saxlayın.</li>
-                <li>• <strong>Əlaqə:</strong> +994 (Xüsusi Admin Xətti)</li>
-            </ul>
+        <!-- 3-Cİ BLOK: RUFUS -->
+        <div class="post-card">
+            <img src="images/rufus.png" alt="Rufus USB" class="post-image">
+            <div class="post-text">Rufus - Kompüterlərə format atmaq üçün USB yaddaş qurğularını (Fleş kartları) çox rahat və sürətli şəkildə yüklənə bilən (Bootable) vəziyyətə gətirən pulsuz proqramdır.</div>
+            <a href="https://rufus.ie/downloads/" class="download-btn" target="_blank">DOSYAYI İNDİR</a>
+            <div class="divider"></div>
         </div>
-
-        <span class="admin-link" onclick="openLoginModal()">[ Admin Panel ]</span>
 
     </div>
 
-    <div id="loginModal" class="modal-overlay">
-        <div class="modal-box">
-            <span class="close-modal" onclick="closeLoginModal()">&times;</span>
-            <h3>Admin Girişi</h3>
-            <input type="text" id="username" placeholder="İstifadəçi Adı">
-            <input type="password" id="password" placeholder="Şifrə">
-            <button class="modal-btn" onclick="checkAdminLogin()">Giriş Et</button>
+    <!-- 💬 WHATSAPP CANLI MESAJ SİSTEMİ -->
+    <div class="chat-toggle" id="chatToggle" onclick="toggleChat()">💬 Adminə Yaz</div>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <span>Adminlə Əlaqə</span>
+            <span onclick="toggleChat()">&times;</span>
+        </div>
+        <div class="chat-body">
+            <input type="text" id="senderName" placeholder="Adınız">
+            <textarea id="senderMsg" rows="3" placeholder="Mesajınız və ya Reklam təklifiniz..."></textarea>
+            <button onclick="sendToWhatsApp()">WhatsApp ilə Göndər</button>
         </div>
     </div>
 
-    <a href="https://wa.me/994XXXXXXXXX" class="whatsapp-float" target="_blank">
-        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-    </a>
-
-    <a href="#" class="scroll-top">▲</a>
-
+    <!-- 📜 LOGIC SCRIPT -->
     <script>
-        function openLoginModal() {
-            document.getElementById('loginModal').style.display = 'flex';
-        }
-
-        function closeLoginModal() {
-            document.getElementById('loginModal').style.display = 'none';
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
-        }
-
-        function checkAdminLogin() {
-            var u = document.getElementById('username').value;
-            var p = document.getElementById('password').value;
-
-            if (u === "labirent" && p === "elish333") {
-                alert("Giriş uğurludur! Admin paneli aktiv edildi.");
-                closeLoginModal();
-                
-                var panel = document.getElementById('adminPanel');
-                panel.style.display = 'block';
-                panel.scrollIntoView({ behavior: 'smooth' });
+        function toggleChat() {
+            var box = document.getElementById('chatBox');
+            var btn = document.getElementById('chatToggle');
+            if(box.style.display === 'flex') {
+                box.style.display = 'none';
+                btn.style.display = 'block';
             } else {
-                alert("Xətalı giriş! İstifadəçi adı və ya şifrə yanlışdır.");
+                box.style.display = 'flex';
+                btn.style.display = 'none';
             }
+        }
+
+        function sendToWhatsApp() {
+            var name = document.getElementById('senderName').value.trim();
+            var msg = document.getElementById('senderMsg').value.trim();
+
+            if(name === "" || msg === "") {
+                alert("Zəhmət olmasa adınızı və mesajınızı yazın!");
+                return;
+            }
+
+            // 🟢 ÖZ WHATSAPP NÖMRƏNİ BURA YAZ (Məsələn: 994501234567 formatında, startsız, hərfsiz)
+            var myNumber = "6282125232356"; 
+            
+            // Mesaj formatı
+            var fullText = "Salam Admin, mən Labirent Club saytından yazıram.\n\n👤 *Adım:* " + name + "\n📝 *Mesajım:* " + msg;
+
+            // WhatsApp yönləndirmə linki
+            var wpUrl = "https://wa.me/" + myNumber + "?text=" + encodeURIComponent(fullText);
+
+            // Yeni pəncərədə açırıq
+            window.open(wpUrl, '_blank');
+            
+            // Xanaları təmizləyirik
+            document.getElementById('senderName').value = "";
+            document.getElementById('senderMsg').value = "";
+            toggleChat();
         }
     </script>
 
 </body>
 </html>
-
-

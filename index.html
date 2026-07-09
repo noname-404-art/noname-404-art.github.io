@@ -217,7 +217,7 @@
             color: #999;
         }
 
-        /* 👑 ADMİN REKLAM VƏ XİDMƏT PANELİ (Giriş uğurlu olanda açılır) */
+        /* 👑 ADMİN REKLAM VƏ XİDMƏT PANELİ */
         .admin-panel {
             display: none;
             width: 100%;
@@ -304,12 +304,10 @@
             var u = document.getElementById('username').value;
             var p = document.getElementById('password').value;
 
-            // 🔑 SƏNİN TƏLƏB ETDİYİN MƏLUMATLAR
             if (u === "labirent" && p === "elish333") {
                 alert("Giriş uğurludur! Admin paneli aktiv edildi.");
                 closeLoginModal();
                 
-                // Paneli görünən edirik və birbaşa ora sürüşdürürük
                 var panel = document.getElementById('adminPanel');
                 panel.style.display = 'block';
                 panel.scrollIntoView({ behavior: 'smooth' });
@@ -321,4 +319,5 @@
 
 </body>
 </html>
+
 
